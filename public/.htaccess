@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Proxy API Duitku to eliminate CORS on Hostinger / Apache / LiteSpeed
+  RewriteRule ^api/duitku/(.*)$ https://sandbox.duitku.com/$1 [P,L]
+
+  # SPA Routing Rule for React Router
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
