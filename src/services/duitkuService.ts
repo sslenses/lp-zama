@@ -63,7 +63,7 @@ export const createDuitkuTransaction = async (
   req: DuitkuTransactionRequest
 ): Promise<DuitkuTransactionResponse> => {
   // Merchant credentials default
-  const merchantCode = req.merchantCode || 'D12345';
+  const merchantCode = req.merchantCode || 'DS33546';
   const apiKey = req.apiKey || '25872f67473df20aa7a3ba9305f1c211';
 
   const signature = generateDuitkuSignature(
