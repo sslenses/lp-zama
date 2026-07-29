@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   }
 
   const {
-    merchantCode = process.env.DUITKU_MERCHANT_CODE || 'D12345',
+    merchantCode = process.env.DUITKU_MERCHANT_CODE || 'DS33546',
     apiKey = process.env.DUITKU_API_KEY || '25872f67473df20aa7a3ba9305f1c211',
     paymentAmount,
     paymentMethod,
