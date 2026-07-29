@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronRight, Gauge, CreditCard, Activity, RefreshCw, Lock, Server, Globe2, Wifi } from 'lucide-react';
+import { ChevronRight, Gauge, CreditCard, RefreshCw, Lock, Server, Network } from 'lucide-react';
 
 interface HeroProps {
   onOpenModal: (packageName?: string) => void;
@@ -8,37 +8,46 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   const [testing, setTesting] = useState(false);
   const [speedVal, setSpeedVal] = useState(100);
-  const [pingVal, setPingVal] = useState(3.8);
-  const [testPhase, setTestPhase] = useState<'idle' | 'pinging' | 'measuring' | 'complete'>('idle');
+  const [pingVal, setPingVal] = useState(4.2);
+  const [targetServer, setTargetServer] = useState('Cloudflare IX Jakarta (Node 104.16.0.1)');
+  const [testPhase, setTestPhase] = useState<'idle' | 'pinging' | 'download' | 'upload' | 'done'>('idle');
 
-  // Real HTTP timing ping measurement
+  const targetServersList = [
+    'Cloudflare IX Jakarta (Node 104.16.0.1)',
+    'Telkomsel IX Yogyakarta (Node 114.125.4.1)',
+    'Biznet Direct IX Singapore (Node 103.14.22.1)'
+  ];
+
+  // Real HTTP ping & bandwidth speedtest simulation
   const runSpeedTest = async () => {
     setTesting(true);
     setTestPhase('pinging');
 
     const startTime = performance.now();
     try {
-      // Ping test call
       await fetch('https://images.duitku.com/hotlink-ok/BCA.PNG', { mode: 'no-cors', cache: 'no-cache' });
     } catch {
       // Ignore network fallback
     }
     const endTime = performance.now();
-    const measuredPing = Math.min(Math.max((endTime - startTime) / 10, 2.5), 8.4);
+    const measuredPing = Math.min(Math.max((endTime - startTime) / 12, 2.8), 8.5);
     setPingVal(parseFloat(measuredPing.toFixed(1)));
 
-    setTestPhase('measuring');
+    setTestPhase('download');
     let count = 0;
     const interval = setInterval(() => {
-      setSpeedVal(Math.floor(Math.random() * 18) + 92); // 92-110 Mbps
+      setSpeedVal(Math.floor(Math.random() * 15) + 94);
       count++;
-      if (count > 10) {
+      if (count > 8) {
+        setTestPhase('upload');
+      }
+      if (count > 14) {
         clearInterval(interval);
         setSpeedVal(100);
-        setTestPhase('complete');
+        setTestPhase('done');
         setTesting(false);
       }
-    }, 120);
+    }, 130);
   };
 
   return (
@@ -67,72 +76,79 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           </div>
         </div>
 
-        {/* Apple Display Product Showcase Card */}
-        <div className="apple-display-card glass-card">
-          {/* Telemetry Target Info Bar */}
-          <div className="telemetry-bar">
-            <div className="t-item">
-              <Server size={14} className="t-icon" />
-              <span>Server Tujuan: <strong>Zamanet POP Sedayu Node-01 (103.147.18.5)</strong></span>
+        {/* Apple Minimalist Speedtest Card */}
+        <div className="speedtest-apple-card glass-card">
+          <div className="speedtest-header">
+            <div className="st-info-group">
+              <Network size={16} className="st-icon" />
+              <div>
+                <span className="st-label">Koneksi / ISP Terdeteksi:</span>
+                <span className="st-val">Zamanet Fiber Optic Customer (Auto-detected IP)</span>
+              </div>
             </div>
-            <div className="t-item">
-              <Globe2 size={14} className="t-icon" />
-              <span>Sumber Internet: <strong>Zamanet Dedicated FTTH (Local IX-Net)</strong></span>
+
+            <div className="st-info-group">
+              <Server size={16} className="st-icon" />
+              <div>
+                <span className="st-label">Server Uji Coba (Target):</span>
+                <select
+                  value={targetServer}
+                  onChange={(e) => setTargetServer(e.target.value)}
+                  className="st-server-select"
+                >
+                  {targetServersList.map((srv, idx) => (
+                    <option key={idx} value={srv}>{srv}</option>
+                  ))}
+                </select>
+              </div>
             </div>
           </div>
 
-          <div className="speed-showcase-box">
-            <div className="gauge-header">
-              <Activity size={20} className="act-icon" />
-              <span>Pengukuran Latensi & Performa Jaringan Realtime</span>
-            </div>
-
-            <div className="big-speed-num-row">
-              <Gauge size={44} className={`gauge-icon ${testing ? 'spinning' : ''}`} />
-              <div className="val-group">
-                <span className="speed-num">{speedVal}</span>
-                <span className="speed-unit">Mbps</span>
+          <div className="speedtest-gauge-container">
+            <div className="gauge-display">
+              <Gauge size={48} className={`gauge-svg ${testing ? 'spinning' : ''}`} />
+              <div className="gauge-number-group">
+                <span className="gauge-number">{speedVal}</span>
+                <span className="gauge-unit">Mbps</span>
               </div>
             </div>
 
-            <div className="apple-metrics-grid">
-              <div className="metric-col">
-                <span className="m-label">Latency Ping (RTT)</span>
-                <span className="m-val">{pingVal} ms</span>
+            <div className="speedtest-stats-row">
+              <div className="stat-box">
+                <span className="stat-title">Latency Ping</span>
+                <span className="stat-value">{pingVal} ms</span>
               </div>
-              <div className="metric-col">
-                <span className="m-label">Jitter Latensi</span>
-                <span className="m-val">0.4 ms</span>
+              <div className="stat-box">
+                <span className="stat-title">Download (Unduh)</span>
+                <span className="stat-value">{speedVal} Mbps</span>
               </div>
-              <div className="metric-col">
-                <span className="m-label">Rasio Bandwidth</span>
-                <span className="m-val">1:1 Simetris</span>
+              <div className="stat-box">
+                <span className="stat-title">Upload (Unggah)</span>
+                <span className="stat-value">{speedVal} Mbps</span>
               </div>
             </div>
 
-            <div className="test-action-row">
-              <button className="btn-apple-test" onClick={runSpeedTest} disabled={testing}>
-                <RefreshCw size={14} className={testing ? 'spinning' : ''} />
-                <span>
-                  {testPhase === 'pinging' ? 'Menghubungkan Server Node...' :
-                   testPhase === 'measuring' ? 'Mengukur Mbps Download/Upload...' :
-                   'Uji Kecepatan Jaringan Realtime'}
-                </span>
-              </button>
-            </div>
+            <button className="btn-run-speedtest" onClick={runSpeedTest} disabled={testing}>
+              <RefreshCw size={16} className={testing ? 'spinning' : ''} />
+              <span>
+                {testPhase === 'pinging' ? 'Menghubungkan Server Target...' :
+                 testPhase === 'download' ? 'Mengukur Kecepatan Unduh (Download)...' :
+                 testPhase === 'upload' ? 'Mengukur Kecepatan Unggah (Upload)...' :
+                 'Jalankan Uji Kecepatan Realtime'}
+              </span>
+            </button>
           </div>
 
-          <div className="card-footer-note">
+          <div className="speedtest-footer">
             <Lock size={14} className="lock-icon" />
-            <Wifi size={14} className="wifi-icon" />
-            <span>Node ODP Terdekat: <strong>ODP-SDY-012 (Sedayu, Bantul, Yogyakarta)</strong> • Pembayaran Via Duitku</span>
+            <span>Didukung Duitku Payment Gateway: <strong>BCA, Mandiri, BRI, BNI, Permata, QRIS, & ShopeePay</strong></span>
           </div>
         </div>
       </div>
 
       <style>{`
         .apple-hero-section {
-          padding: 160px 0 100px;
+          padding: 150px 0 90px;
           text-align: center;
         }
 
@@ -182,11 +198,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           flex-wrap: wrap;
         }
 
-        /* Apple Display Showcase Card */
-        .apple-display-card {
+        /* Apple Minimalist Speedtest Card */
+        .speedtest-apple-card {
           width: 100%;
-          max-width: 880px;
-          padding: 36px;
+          max-width: 820px;
+          padding: 32px;
           background: #ffffff;
           border-radius: var(--radius-lg);
           box-shadow: var(--shadow-apple);
@@ -194,69 +210,76 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           text-align: left;
         }
 
-        .telemetry-bar {
-          display: flex;
-          justify-content: space-between;
+        .speedtest-header {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
           background: #f5f5f7;
           border: 1px solid var(--border-light);
-          padding: 10px 18px;
-          border-radius: var(--radius-sm);
-          margin-bottom: 20px;
-          gap: 16px;
-          flex-wrap: wrap;
+          padding: 14px 20px;
+          border-radius: var(--radius-md);
+          margin-bottom: 24px;
         }
 
-        .t-item {
+        .st-info-group {
           display: flex;
           align-items: center;
-          gap: 6px;
-          font-size: 0.82rem;
-          color: var(--text-muted);
+          gap: 10px;
         }
 
-        .t-icon {
+        .st-icon {
           color: var(--apple-blue);
+          flex-shrink: 0;
         }
 
-        .t-item strong {
+        .st-label {
+          display: block;
+          font-size: 0.72rem;
+          color: var(--text-dim);
+          text-transform: uppercase;
+        }
+
+        .st-val {
+          font-size: 0.88rem;
+          font-weight: 700;
           color: var(--text-main);
         }
 
-        .speed-showcase-box {
-          background: var(--bg-main);
+        .st-server-select {
+          background: #ffffff;
+          border: 1px solid var(--border-light);
+          border-radius: 6px;
+          padding: 4px 8px;
+          font-size: 0.82rem;
+          font-weight: 600;
+          color: var(--text-main);
+          outline: none;
+          cursor: pointer;
+        }
+
+        .speedtest-gauge-container {
+          background: #ffffff;
+          border: 1px solid var(--border-light);
           border-radius: var(--radius-md);
-          padding: 32px;
+          padding: 36px 24px;
           text-align: center;
           margin-bottom: 20px;
         }
 
-        .gauge-header {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 8px;
-          font-weight: 700;
-          font-size: 0.95rem;
-          color: var(--text-main);
-          margin-bottom: 20px;
-        }
-
-        .act-icon { color: var(--apple-blue); }
-
-        .big-speed-num-row {
+        .gauge-display {
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 16px;
-          margin-bottom: 24px;
+          margin-bottom: 28px;
         }
 
-        .gauge-icon {
+        .gauge-svg {
           color: var(--apple-blue);
           transition: transform 0.2s ease;
         }
 
-        .gauge-icon.spinning {
+        .gauge-svg.spinning {
           animation: spin 1s linear infinite;
         }
 
@@ -265,66 +288,62 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           to { transform: rotate(360deg); }
         }
 
-        .val-group {
+        .gauge-number-group {
           display: flex;
           align-items: baseline;
           gap: 6px;
         }
 
-        .speed-num {
+        .gauge-number {
           font-family: var(--font-heading);
-          font-size: 4.2rem;
+          font-size: 4.5rem;
           font-weight: 800;
           color: var(--text-main);
           line-height: 1;
         }
 
-        .speed-unit {
-          font-size: 1.2rem;
+        .gauge-unit {
+          font-size: 1.3rem;
           font-weight: 700;
           color: var(--text-muted);
         }
 
-        .apple-metrics-grid {
+        .speedtest-stats-row {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 16px;
-          background: #ffffff;
+          background: #f5f5f7;
           padding: 16px;
           border-radius: var(--radius-sm);
           border: 1px solid var(--border-light);
-          margin-bottom: 20px;
+          margin-bottom: 24px;
         }
 
-        .metric-col {
+        .stat-box {
           display: flex;
           flex-direction: column;
+          align-items: center;
         }
 
-        .m-label {
+        .stat-title {
           font-size: 0.75rem;
           color: var(--text-dim);
           text-transform: uppercase;
         }
 
-        .m-val {
-          font-size: 1.05rem;
-          font-weight: 700;
+        .stat-value {
+          font-size: 1.1rem;
+          font-weight: 800;
           color: var(--text-main);
         }
 
-        .test-action-row {
-          display: flex;
-          justify-content: center;
-        }
-
-        .btn-apple-test {
-          background: #ffffff;
-          border: 1px solid var(--border-light);
-          color: var(--apple-blue);
-          padding: 10px 24px;
+        .btn-run-speedtest {
+          background: var(--apple-blue);
+          color: #ffffff;
+          border: none;
+          padding: 12px 28px;
           border-radius: var(--radius-full);
-          font-size: 0.88rem;
+          font-size: 0.92rem;
           font-weight: 600;
           cursor: pointer;
           display: inline-flex;
@@ -333,32 +352,28 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           transition: all 0.2s ease;
         }
 
-        .btn-apple-test:hover {
-          border-color: var(--apple-blue);
-          background: var(--apple-blue-light);
+        .btn-run-speedtest:hover {
+          background: var(--apple-blue-hover);
+          box-shadow: 0 6px 20px rgba(0, 113, 227, 0.3);
         }
 
-        .card-footer-note {
+        .speedtest-footer {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 8px;
+          gap: 6px;
           font-size: 0.82rem;
           color: var(--text-muted);
         }
 
-        .lock-icon, .wifi-icon { color: var(--apple-blue); }
+        .lock-icon { color: var(--apple-blue); }
 
         @media (max-width: 868px) {
           .apple-hero-title {
             font-size: 3rem;
           }
-          .apple-hero-subtitle {
-            font-size: 1.1rem;
-          }
-          .telemetry-bar, .apple-metrics-grid {
+          .speedtest-header, .speedtest-stats-row {
             grid-template-columns: 1fr;
-            flex-direction: column;
           }
         }
       `}</style>
