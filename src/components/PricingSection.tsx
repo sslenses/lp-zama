@@ -20,93 +20,92 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
   };
 
   return (
-    <section id="pricing" className="pricing-section">
+    <section id="pricing" className="apple-pricing-section">
       <div className="container">
         <div className="section-header">
-          <span className="tag">Pilihan Paket & Harga</span>
-          <h2>Paket Internet Zamanet</h2>
+          <span className="tag">PILIHAN PAKET</span>
+          <h2>Temukan paket Zamanet yang pas untuk Anda.</h2>
           <p>
-            Pilihlah paket internet sesuai kebutuhan tempat tinggal, usaha, atau kantor Anda dengan opsi pembayaran aman & otomatis via Duitku.
+            Tersedia pilihan paket promo hemat harian hingga bandwidth super cepat untuk usaha Anda. Pembayaran aman & otomatis via Duitku Gateway.
           </p>
         </div>
 
-        {/* Tab Selector */}
-        <div className="tab-container">
-          <div className="tab-switcher">
+        {/* Apple Segmented Switcher */}
+        <div className="apple-segmented-container">
+          <div className="apple-segmented-control">
             <button
-              className={`tab-btn ${activeTab === 'fast' ? 'active fast-active' : ''}`}
+              className={`segmented-btn ${activeTab === 'fast' ? 'active' : ''}`}
               onClick={() => setActiveTab('fast')}
             >
-              <Zap size={18} />
-              <span>⚡ Paket Zama Fast</span>
-              <span className="tab-badge">Promo Value</span>
+              <Zap size={16} />
+              <span>Zama Fast (Promo)</span>
             </button>
 
             <button
-              className={`tab-btn ${activeTab === 'reguler' ? 'active reguler-active' : ''}`}
+              className={`segmented-btn ${activeTab === 'reguler' ? 'active' : ''}`}
               onClick={() => setActiveTab('reguler')}
             >
-              <Building2 size={18} />
-              <span>🏢 Paket Zama Reguler</span>
+              <Building2 size={16} />
+              <span>Zama Reguler</span>
             </button>
           </div>
         </div>
 
-        {/* Active Tab Notice */}
-        <div className="tab-banner">
+        {/* Tab Notice Banner */}
+        <div className="apple-banner-box">
           {activeTab === 'fast' ? (
-            <div className="banner-box banner-fast">
-              <Sparkles size={20} className="banner-icon" />
-              <span><strong>Paket Zama Fast:</strong> Paket promo super value bandwidth jumbo untuk pengguna rumahan & WFH modern!</span>
+            <div className="banner-inner fast-banner">
+              <Sparkles size={18} />
+              <span><strong>Paket Zama Fast:</strong> Promo super value bandwidth jumbo untuk pengguna rumahan & WFH!</span>
             </div>
           ) : (
-            <div className="banner-box banner-reguler">
-              <ShieldCheck size={20} className="banner-icon" />
-              <span><strong>Paket Zama Reguler:</strong> Pilihan variatif 30 Mbps s/d 200 Mbps (Harga sudah termasuk PPN 11%).</span>
+            <div className="banner-inner reguler-banner">
+              <ShieldCheck size={18} />
+              <span><strong>Paket Zama Reguler:</strong> Pilihan komplit 30 Mbps s/d 200 Mbps (Harga net sudah termasuk PPN 11%).</span>
             </div>
           )}
         </div>
 
-        {/* Packages Grid */}
-        <div className={`pricing-grid ${activeTab === 'fast' ? 'grid-fast' : 'grid-reguler'}`}>
+        {/* Apple Product Pricing Grid */}
+        <div className={`apple-pricing-grid ${activeTab === 'fast' ? 'grid-two' : 'grid-three'}`}>
           {activePackages.map((pkg: PackageItem) => (
             <div
               key={pkg.id}
-              className={`pricing-card glass-card ${pkg.isPopular ? 'popular-card' : ''}`}
+              className={`apple-pricing-card glass-card ${pkg.isPopular ? 'popular-card' : ''}`}
             >
               {pkg.badge && (
-                <div className={`pkg-badge ${pkg.type === 'fast' ? 'badge-fast' : 'badge-reguler'}`}>
+                <div className="apple-card-badge">
                   {pkg.badge}
                 </div>
               )}
 
-              <div className="pkg-header">
-                <h3 className="pkg-name">{pkg.name}</h3>
-                <div className="pkg-speed-display">
-                  <span className="speed-number">{pkg.speed}</span>
+              <div className="card-head">
+                <h3 className="pkg-title">{pkg.name}</h3>
+                <div className="speed-tag">
+                  <span className="speed-val">{pkg.speed}</span>
                   <span className="speed-unit">Mbps</span>
                 </div>
               </div>
 
-              <div className="pkg-price-box">
-                <div className="price-amount">{formatRupiah(pkg.price)}</div>
-                <span className="price-period">/ bulan</span>
+              <div className="price-row">
+                <span className="price-val">{formatRupiah(pkg.price)}</span>
+                <span className="price-unit">/bulan</span>
               </div>
 
-              <div className="installation-tag">
+              <div className="inst-row">
                 {pkg.installationFee === 0 ? (
-                  <span className="inst-free">✓ Biaya Instalasi Gratis (Rp 0)</span>
+                  <span className="free-inst">✓ Gratis Biaya Pasang (Rp 0)</span>
                 ) : (
-                  <span className="inst-paid">Biaya Instalasi: Rp {pkg.installationFee?.toLocaleString('id-ID')}</span>
+                  <span className="paid-inst">Biaya Pasang: Rp {pkg.installationFee?.toLocaleString('id-ID')}</span>
                 )}
               </div>
 
-              <div className="divider"></div>
+              <div className="card-divider"></div>
 
-              <ul className="pkg-features-list">
+              <ul className="apple-feat-list">
                 {pkg.features.map((feat, idx) => (
                   <li key={idx}>
-                    <Check size={16} className="feature-check" />
+                    <Check size={16} className="check-icon" />
                     <span>{feat}</span>
                   </li>
                 ))}
@@ -117,7 +116,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
                 onClick={() => onOpenModal(`${pkg.name} (${pkg.speed} Mbps) - ${formatRupiah(pkg.price)}`)}
               >
                 <CreditCard size={18} />
-                <span>Bayar & Langganan ({pkg.name})</span>
+                <span>Berlangganan Paket Ini</span>
               </button>
             </div>
           ))}
@@ -125,243 +124,205 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
       </div>
 
       <style>{`
-        .pricing-section {
+        .apple-pricing-section {
           padding: 80px 0 100px;
-          position: relative;
         }
 
-        /* Tab Switcher */
-        .tab-container {
+        .apple-segmented-container {
           display: flex;
           justify-content: center;
-          margin-bottom: 30px;
+          margin-bottom: 24px;
         }
 
-        .tab-switcher {
+        .apple-segmented-control {
           display: inline-flex;
-          padding: 6px;
-          background: #ffffff;
-          border: 1px solid var(--border-light);
-          box-shadow: var(--shadow-sm);
+          background: #e8e8ed;
+          padding: 4px;
           border-radius: var(--radius-full);
-          gap: 8px;
+          gap: 4px;
         }
 
-        .tab-btn {
+        .segmented-btn {
           display: flex;
           align-items: center;
-          gap: 10px;
-          padding: 12px 28px;
+          gap: 8px;
+          padding: 10px 24px;
           border-radius: var(--radius-full);
           border: none;
           background: transparent;
-          color: var(--text-muted);
-          font-family: var(--font-heading);
+          color: var(--text-main);
+          font-family: var(--font-body);
           font-weight: 600;
-          font-size: 1rem;
+          font-size: 0.95rem;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: all 0.25s ease;
         }
 
-        .tab-btn.active.fast-active {
-          background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
-          color: #ffffff;
-          box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35);
+        .segmented-btn.active {
+          background: #ffffff;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+          color: var(--apple-blue);
         }
 
-        .tab-btn.active.reguler-active {
-          background: linear-gradient(135deg, var(--accent-indigo) 0%, #3730a3 100%);
-          color: #ffffff;
-          box-shadow: 0 4px 16px rgba(79, 70, 229, 0.35);
-        }
-
-        .tab-badge {
-          font-size: 0.72rem;
-          background: rgba(255, 255, 255, 0.25);
-          padding: 2px 8px;
-          border-radius: var(--radius-full);
-          text-transform: uppercase;
-        }
-
-        /* Banner */
-        .tab-banner {
-          max-width: 800px;
+        .apple-banner-box {
+          max-width: 740px;
           margin: 0 auto 40px;
         }
 
-        .banner-box {
+        .banner-inner {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 12px;
-          padding: 14px 24px;
+          gap: 10px;
+          padding: 12px 20px;
           border-radius: var(--radius-md);
-          font-size: 0.95rem;
-          text-align: center;
+          font-size: 0.92rem;
         }
 
-        .banner-fast {
-          background: var(--primary-blue-light);
-          border: 1px solid rgba(2, 132, 199, 0.2);
-          color: var(--primary-blue-dark);
+        .fast-banner {
+          background: var(--apple-blue-light);
+          color: var(--apple-blue-dark);
+          border: 1px solid rgba(0, 113, 227, 0.2);
         }
 
-        .banner-reguler {
-          background: var(--accent-indigo-light);
-          border: 1px solid rgba(79, 70, 229, 0.2);
-          color: #3730a3;
+        .reguler-banner {
+          background: var(--accent-emerald-light);
+          color: #065f46;
+          border: 1px solid rgba(16, 185, 129, 0.2);
         }
 
-        /* Pricing Grid */
-        .pricing-grid {
+        .apple-pricing-grid {
           display: grid;
-          gap: 30px;
+          gap: 28px;
         }
 
-        .grid-fast {
+        .grid-two {
           grid-template-columns: repeat(2, minmax(0, 480px));
           justify-content: center;
         }
 
-        .grid-reguler {
+        .grid-three {
           grid-template-columns: repeat(3, 1fr);
         }
 
-        .pricing-card {
-          padding: 36px 30px;
-          position: relative;
+        .apple-pricing-card {
+          padding: 36px 32px;
+          background: #ffffff;
+          border-radius: var(--radius-lg);
+          box-shadow: var(--shadow-apple);
           display: flex;
           flex-direction: column;
-          background: #ffffff;
+          position: relative;
         }
 
         .popular-card {
-          border-color: var(--primary-blue);
-          box-shadow: 0 15px 35px rgba(2, 132, 199, 0.15);
+          border: 2px solid var(--apple-blue);
         }
 
-        .pkg-badge {
+        .apple-card-badge {
           position: absolute;
           top: -14px;
           right: 24px;
-          padding: 6px 16px;
+          background: var(--apple-blue);
+          color: #ffffff;
+          padding: 4px 14px;
           border-radius: var(--radius-full);
-          font-size: 0.8rem;
+          font-size: 0.78rem;
           font-weight: 700;
           text-transform: uppercase;
-          letter-spacing: 0.5px;
         }
 
-        .badge-fast {
-          background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
-          color: #ffffff;
-          box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
-        }
-
-        .badge-reguler {
-          background: linear-gradient(135deg, var(--accent-indigo), #3730a3);
-          color: #ffffff;
-        }
-
-        .pkg-header {
+        .card-head {
           display: flex;
           justify-content: space-between;
           align-items: flex-end;
-          margin-bottom: 20px;
+          margin-bottom: 16px;
         }
 
-        .pkg-name {
+        .pkg-title {
           font-size: 1.5rem;
-          font-weight: 800;
-          color: var(--text-main);
+          font-weight: 700;
         }
 
-        .pkg-speed-display {
+        .speed-tag {
           display: flex;
           align-items: baseline;
-          gap: 4px;
+          gap: 2px;
         }
 
-        .speed-number {
+        .speed-val {
           font-family: var(--font-heading);
-          font-size: 3rem;
+          font-size: 2.8rem;
           font-weight: 800;
-          color: var(--primary-blue);
+          color: var(--apple-blue);
           line-height: 1;
         }
 
         .speed-unit {
-          font-size: 1rem;
+          font-size: 0.95rem;
           font-weight: 700;
           color: var(--text-muted);
         }
 
-        .pkg-price-box {
-          margin-bottom: 12px;
+        .price-row {
           display: flex;
           align-items: baseline;
-          gap: 8px;
+          gap: 6px;
+          margin-bottom: 8px;
         }
 
-        .price-amount {
+        .price-val {
           font-family: var(--font-heading);
           font-size: 2.2rem;
           font-weight: 800;
-          color: var(--text-main);
         }
 
-        .price-period {
+        .price-unit {
           color: var(--text-muted);
-          font-size: 0.95rem;
+          font-size: 0.9rem;
         }
 
-        .installation-tag {
+        .inst-row {
           font-size: 0.85rem;
           margin-bottom: 20px;
         }
 
-        .inst-free {
-          color: #059669;
-          font-weight: 700;
-        }
+        .free-inst { color: #059669; font-weight: 700; }
+        .paid-inst { color: var(--text-muted); }
 
-        .inst-paid {
-          color: var(--text-muted);
-        }
-
-        .divider {
+        .card-divider {
           height: 1px;
           background: var(--border-light);
           margin-bottom: 24px;
         }
 
-        .pkg-features-list {
+        .apple-feat-list {
           list-style: none;
           display: flex;
           flex-direction: column;
-          gap: 14px;
+          gap: 12px;
           margin-bottom: 32px;
           flex-grow: 1;
         }
 
-        .pkg-features-list li {
+        .apple-feat-list li {
           display: flex;
           align-items: flex-start;
           gap: 10px;
-          font-size: 0.95rem;
+          font-size: 0.92rem;
           color: var(--text-muted);
         }
 
-        .feature-check {
-          color: var(--primary-blue);
-          margin-top: 3px;
+        .check-icon {
+          color: var(--apple-blue);
+          margin-top: 2px;
           flex-shrink: 0;
         }
 
-        @media (max-width: 1024px) {
-          .grid-fast, .grid-reguler {
+        @media (max-width: 992px) {
+          .grid-two, .grid-three {
             grid-template-columns: 1fr;
-            max-width: 500px;
+            max-width: 480px;
             margin: 0 auto;
           }
         }
