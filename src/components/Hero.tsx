@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, ArrowRight, Gauge, CheckCircle2, CreditCard, Activity, RefreshCw, Lock } from 'lucide-react';
+import { ChevronRight, Gauge, CreditCard, Activity, RefreshCw, Lock, ShieldCheck } from 'lucide-react';
 
 interface HeroProps {
   onOpenModal: (packageName?: string) => void;
@@ -14,8 +14,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
     setTesting(true);
     let count = 0;
     const interval = setInterval(() => {
-      setSpeedVal(Math.floor(Math.random() * 20) + 90); // 90-110 Mbps
-      setPingVal(Math.floor(Math.random() * 3) + 3); // 3-5 ms
+      setSpeedVal(Math.floor(Math.random() * 20) + 90);
+      setPingVal(Math.floor(Math.random() * 3) + 3);
       count++;
       if (count > 12) {
         clearInterval(interval);
@@ -23,274 +23,218 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         setPingVal(4);
         setTesting(false);
       }
-    }, 150);
+    }, 140);
   };
 
   return (
-    <section id="hero" className="hero-section">
-      <div className="container hero-container">
-        <div className="hero-content">
-          <div className="hero-badge">
-            <span className="pulse-dot"></span>
-            <ShieldCheck size={16} className="badge-icon" />
-            <span>100% Fiber Optic Modern • D.I. Yogyakarta</span>
-          </div>
-
-          <h1 className="hero-title">
-            Koneksi <span className="gradient-text-cyan-pink">Zaman Now</span>, Kecepatan Tanpa Batas.
+    <section id="hero" className="apple-hero-section">
+      <div className="container apple-hero-container">
+        {/* Apple Center Headline */}
+        <div className="apple-hero-text">
+          <span className="apple-eyebrow">BARU • FIBER OPTIC D.I. YOGYAKARTA</span>
+          <h1 className="apple-hero-title">
+            Zamanet.<br />Kecepatan Fiber Murni.
           </h1>
-
-          <p className="hero-description">
-            Nikmati koneksi internet serat optik murni super kencang, simetris 1:1, dan <strong>0% FUP (Real Unlimited)</strong> dengan pembayaran otomatis via <strong>Duitku Payment Gateway</strong>.
+          <p className="apple-hero-subtitle">
+            Koneksi internet serat optik termutakhir dengan rasio simetris 1:1, <strong>0% FUP (Real Unlimited)</strong>, dan kemudahan pembayaran otomatis via <strong>Duitku Payment Gateway</strong>.
           </p>
 
-          <div className="hero-actions">
-            <a href="#pricing" className="btn btn-primary btn-lg">
-              <span>Lihat Paket & Harga</span>
-              <ArrowRight size={20} />
-            </a>
-            <button className="btn btn-outline btn-lg" onClick={() => onOpenModal('Pendaftaran Langsung Hero')}>
+          <div className="apple-hero-cta">
+            <button className="btn btn-primary btn-lg" onClick={() => onOpenModal('Beli Sekarang Hero')}>
               <CreditCard size={18} />
-              <span>Bayar & Langganan</span>
+              <span>Berlangganan Sekarang</span>
             </button>
-          </div>
 
-          <div className="hero-highlights-pills">
-            <div className="pill-item">
-              <CheckCircle2 size={16} className="check-icon" />
-              <span>Upload = Download (1:1)</span>
-            </div>
-            <div className="pill-item">
-              <CheckCircle2 size={16} className="check-icon" />
-              <span>Tanpa Batas Kuota FUP</span>
-            </div>
-            <div className="pill-item">
-              <CheckCircle2 size={16} className="check-icon" />
-              <span>Duitku Instant Payment</span>
-            </div>
+            <a href="#pricing" className="apple-link">
+              <span>Lihat semua paket & harga</span>
+              <ChevronRight size={18} />
+            </a>
           </div>
         </div>
 
-        {/* Hero Visual: Bento Live Speed Test Card */}
-        <div className="hero-visual">
-          <div className="visual-card bento-card glass-card">
-            <div className="visual-header">
-              <div className="v-header-left">
-                <Activity size={20} className="activity-icon" />
-                <span className="v-title">Simulasi Performa Jaringan Zamanet</span>
-              </div>
-              <div className="v-status">
-                <span className="status-dot"></span>
-                <span>Live ODP Active</span>
+        {/* Apple Display Product Showcase Card */}
+        <div className="apple-display-card glass-card">
+          <div className="card-top-bar">
+            <div className="status-pill">
+              <span className="dot-green"></span>
+              <span>Network Status: <strong>ODP Live Active</strong></span>
+            </div>
+            <div className="location-pill">
+              <ShieldCheck size={14} />
+              <span>Sedayu, Bantul & Yogyakarta</span>
+            </div>
+          </div>
+
+          <div className="speed-showcase-box">
+            <div className="gauge-header">
+              <Activity size={22} className="act-icon" />
+              <span>Simulasi Performa Jaringan Realtime</span>
+            </div>
+
+            <div className="big-speed-num-row">
+              <Gauge size={44} className={`gauge-icon ${testing ? 'spinning' : ''}`} />
+              <div className="val-group">
+                <span className="speed-num">{speedVal}</span>
+                <span className="speed-unit">Mbps</span>
               </div>
             </div>
 
-            {/* Interactive Speed Gauge */}
-            <div className="speed-meter-box">
-              <div className="meter-circle">
-                <Gauge size={38} className={`gauge-icon ${testing ? 'spinning' : ''}`} />
-                <span className="meter-num">{speedVal}</span>
-                <span className="meter-unit">Mbps</span>
+            <div className="apple-metrics-grid">
+              <div className="metric-col">
+                <span className="m-label">Latency Ping</span>
+                <span className="m-val">{pingVal} ms</span>
               </div>
-
-              <div className="ping-stats-row">
-                <div className="pstat-item">
-                  <span className="pstat-lbl">Latency Ping</span>
-                  <span className="pstat-val">{pingVal} ms</span>
-                </div>
-                <div className="pstat-item">
-                  <span className="pstat-lbl">Jitter</span>
-                  <span className="pstat-val">0.6 ms</span>
-                </div>
-                <div className="pstat-item">
-                  <span className="pstat-lbl">Packet Loss</span>
-                  <span className="pstat-val">0.0%</span>
-                </div>
+              <div className="metric-col">
+                <span className="m-label">Jitter</span>
+                <span className="m-val">0.6 ms</span>
               </div>
-
-              <button className="btn-test-run" onClick={runSpeedTest} disabled={testing}>
-                <RefreshCw size={14} className={testing ? 'spinning' : ''} />
-                <span>{testing ? 'Mengukur Kecepatan...' : 'Uji Kecepatan Realtime'}</span>
-              </button>
+              <div className="metric-col">
+                <span className="m-label">Simetris</span>
+                <span className="m-val">1:1 Upload/DL</span>
+              </div>
             </div>
 
-            {/* Micro Duitku Payment Pill */}
-            <div className="duitku-trust-pill">
-              <Lock size={14} className="lock-icon" />
-              <span>Pembayaran Aman Via Duitku: <strong>BCA, Mandiri, BRI, QRIS, & E-Wallet</strong></span>
-            </div>
+            <button className="btn-apple-test" onClick={runSpeedTest} disabled={testing}>
+              <RefreshCw size={14} className={testing ? 'spinning' : ''} />
+              <span>{testing ? 'Mengukur Jaringan...' : 'Uji Kecepatan Jaringan'}</span>
+            </button>
+          </div>
+
+          <div className="card-footer-note">
+            <Lock size={14} className="lock-icon" />
+            <span>Pembayaran Otomatis Duitku: <strong>BCA, Mandiri, BRI, BNI, Permata, QRIS, & ShopeePay</strong></span>
           </div>
         </div>
       </div>
 
       <style>{`
-        .hero-section {
+        .apple-hero-section {
           padding: 160px 0 100px;
-          position: relative;
+          text-align: center;
         }
 
-        .hero-container {
-          display: grid;
-          grid-template-columns: 1.15fr 0.85fr;
-          gap: 60px;
+        .apple-hero-container {
+          display: flex;
+          flex-direction: column;
           align-items: center;
         }
 
-        .hero-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          padding: 8px 18px;
-          border-radius: var(--radius-full);
-          background: var(--primary-blue-light);
-          border: 1px solid rgba(2, 132, 199, 0.2);
-          color: var(--primary-blue-dark);
-          font-size: 0.88rem;
+        .apple-eyebrow {
+          font-size: 0.85rem;
           font-weight: 700;
-          margin-bottom: 24px;
+          letter-spacing: 1px;
+          color: var(--apple-blue);
+          text-transform: uppercase;
+          margin-bottom: 16px;
+          display: inline-block;
         }
 
-        .badge-icon {
-          color: var(--primary-blue);
-        }
-
-        .pulse-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background-color: var(--primary-blue);
-          box-shadow: 0 0 10px var(--primary-blue);
-          animation: pulse 1.8s infinite;
-        }
-
-        @keyframes pulse {
-          0% { transform: scale(0.95); opacity: 0.8; }
-          50% { transform: scale(1.4); opacity: 1; }
-          100% { transform: scale(0.95); opacity: 0.8; }
-        }
-
-        .hero-title {
-          font-size: 3.8rem;
+        .apple-hero-title {
+          font-size: 4.5rem;
           font-weight: 800;
-          letter-spacing: -1.5px;
-          margin-bottom: 20px;
-          line-height: 1.12;
+          line-height: 1.05;
+          letter-spacing: -0.03em;
+          margin-bottom: 24px;
           color: var(--text-main);
         }
 
-        .hero-description {
-          font-size: 1.2rem;
+        .apple-hero-subtitle {
+          font-size: 1.35rem;
           color: var(--text-muted);
-          margin-bottom: 36px;
-          max-width: 580px;
-          line-height: 1.6;
+          max-width: 680px;
+          margin: 0 auto 36px;
+          line-height: 1.5;
         }
 
-        .hero-description strong {
+        .apple-hero-subtitle strong {
           color: var(--text-main);
         }
 
-        .hero-actions {
-          display: flex;
-          gap: 16px;
-          margin-bottom: 36px;
-          flex-wrap: wrap;
-        }
-
-        .hero-highlights-pills {
-          display: flex;
-          gap: 12px;
-          flex-wrap: wrap;
-        }
-
-        .pill-item {
+        .apple-hero-cta {
           display: flex;
           align-items: center;
-          gap: 6px;
-          font-size: 0.88rem;
-          font-weight: 600;
-          color: var(--text-muted);
-          background: #ffffff;
-          border: 1px solid var(--border-light);
-          padding: 6px 14px;
-          border-radius: var(--radius-full);
+          justify-content: center;
+          gap: 24px;
+          margin-bottom: 60px;
+          flex-wrap: wrap;
         }
 
-        .check-icon {
-          color: var(--accent-emerald);
-        }
-
-        /* Hero Bento Live Speed Card */
-        .visual-card {
-          padding: 32px;
+        /* Apple Display Showcase Card */
+        .apple-display-card {
+          width: 100%;
+          max-width: 860px;
+          padding: 40px;
           background: #ffffff;
           border-radius: var(--radius-lg);
+          box-shadow: var(--shadow-apple);
           border: 1px solid var(--border-light);
-          box-shadow: var(--shadow-lg);
+          text-align: left;
         }
 
-        .visual-header {
+        .card-top-bar {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 24px;
+          margin-bottom: 28px;
           padding-bottom: 16px;
           border-bottom: 1px solid var(--border-light);
         }
 
-        .v-header-left {
+        .status-pill {
           display: flex;
           align-items: center;
           gap: 8px;
-          font-weight: 700;
-          font-size: 0.9rem;
-          color: var(--text-main);
+          font-size: 0.85rem;
+          color: var(--text-muted);
         }
 
-        .activity-icon {
-          color: var(--primary-blue);
+        .dot-green {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #10b981;
         }
 
-        .v-status {
+        .location-pill {
           display: flex;
           align-items: center;
           gap: 6px;
-          font-size: 0.8rem;
-          font-weight: 700;
-          color: #065f46;
-          background: var(--accent-emerald-light);
-          padding: 4px 12px;
-          border-radius: var(--radius-full);
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: var(--apple-blue);
         }
 
-        .status-dot {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: var(--accent-emerald);
-        }
-
-        .speed-meter-box {
-          background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+        .speed-showcase-box {
+          background: var(--bg-main);
           border-radius: var(--radius-md);
-          padding: 28px 20px;
+          padding: 32px;
           text-align: center;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
           margin-bottom: 20px;
         }
 
-        .meter-circle {
+        .gauge-header {
           display: flex;
-          flex-direction: column;
           align-items: center;
+          justify-content: center;
+          gap: 8px;
+          font-weight: 700;
+          font-size: 0.95rem;
+          color: var(--text-main);
           margin-bottom: 20px;
+        }
+
+        .act-icon { color: var(--apple-blue); }
+
+        .big-speed-num-row {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+          margin-bottom: 24px;
         }
 
         .gauge-icon {
-          color: var(--primary-blue);
-          margin-bottom: 6px;
+          color: var(--apple-blue);
           transition: transform 0.2s ease;
         }
 
@@ -303,102 +247,94 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           to { transform: rotate(360deg); }
         }
 
-        .meter-num {
+        .val-group {
+          display: flex;
+          align-items: baseline;
+          gap: 6px;
+        }
+
+        .speed-num {
           font-family: var(--font-heading);
-          font-size: 3.5rem;
+          font-size: 4.2rem;
           font-weight: 800;
-          color: var(--primary-blue-dark);
+          color: var(--text-main);
           line-height: 1;
         }
 
-        .meter-unit {
-          font-size: 0.9rem;
+        .speed-unit {
+          font-size: 1.2rem;
           font-weight: 700;
           color: var(--text-muted);
-          text-transform: uppercase;
         }
 
-        .ping-stats-row {
-          display: flex;
-          justify-content: space-around;
-          width: 100%;
+        .apple-metrics-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
           background: #ffffff;
-          padding: 12px 16px;
+          padding: 16px;
           border-radius: var(--radius-sm);
           border: 1px solid var(--border-light);
-          margin-bottom: 16px;
+          margin-bottom: 20px;
         }
 
-        .pstat-item {
+        .metric-col {
           display: flex;
           flex-direction: column;
-          align-items: center;
         }
 
-        .pstat-lbl {
-          font-size: 0.72rem;
+        .m-label {
+          font-size: 0.75rem;
           color: var(--text-dim);
           text-transform: uppercase;
         }
 
-        .pstat-val {
-          font-size: 0.95rem;
+        .m-val {
+          font-size: 1rem;
           font-weight: 700;
           color: var(--text-main);
         }
 
-        .btn-test-run {
+        .btn-apple-test {
           background: #ffffff;
-          border: 1px solid var(--primary-blue);
-          color: var(--primary-blue-dark);
-          padding: 8px 18px;
+          border: 1px solid var(--border-light);
+          color: var(--apple-blue);
+          padding: 8px 20px;
           border-radius: var(--radius-full);
           font-size: 0.85rem;
-          font-weight: 700;
+          font-weight: 600;
           cursor: pointer;
-          display: flex;
+          display: inline-flex;
           align-items: center;
           gap: 6px;
           transition: all 0.2s ease;
         }
 
-        .btn-test-run:hover {
-          background: var(--primary-blue-light);
+        .btn-apple-test:hover {
+          border-color: var(--apple-blue);
+          background: var(--apple-blue-light);
         }
 
-        .duitku-trust-pill {
+        .card-footer-note {
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 8px;
-          background: var(--bg-subtle);
-          border: 1px solid var(--border-light);
-          border-radius: var(--radius-sm);
-          padding: 10px 14px;
-          font-size: 0.8rem;
+          font-size: 0.82rem;
           color: var(--text-muted);
         }
 
-        .lock-icon {
-          color: var(--primary-blue);
-        }
+        .lock-icon { color: var(--apple-blue); }
 
-        @media (max-width: 992px) {
-          .hero-container {
+        @media (max-width: 868px) {
+          .apple-hero-title {
+            font-size: 3rem;
+          }
+          .apple-hero-subtitle {
+            font-size: 1.1rem;
+          }
+          .apple-metrics-grid {
             grid-template-columns: 1fr;
-            text-align: center;
-          }
-
-          .hero-title {
-            font-size: 2.8rem;
-          }
-
-          .hero-description {
-            margin: 0 auto 30px;
-          }
-
-          .hero-actions, .hero-highlights-pills {
-            justify-content: center;
           }
         }
       `}</style>
