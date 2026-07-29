@@ -35,7 +35,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
         </a>
 
         <nav className={`apple-nav-links ${mobileMenuOpen ? 'active' : ''}`}>
-          <a href="#hero" onClick={() => setMobileMenuOpen(false)}>Ikhtisar</a>
           <a href="#features" onClick={() => setMobileMenuOpen(false)}>Spesifikasi</a>
           <a href="#pricing" onClick={() => setMobileMenuOpen(false)}>Paket & Harga</a>
           <a href="#calculator" onClick={() => setMobileMenuOpen(false)}>Kalkulator Mbps</a>
