@@ -77,6 +77,13 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
     });
 
     setLoading(false);
+    
+    // Direct redirect to Duitku POP payment URL if available
+    if (res.paymentUrl) {
+      window.location.href = res.paymentUrl;
+      return;
+    }
+
     setDuitkuResult(res);
     setStep(2);
   };
