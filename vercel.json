@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/inquiry", "destination": "/api/inquiry.js" }
+  ]
+}
