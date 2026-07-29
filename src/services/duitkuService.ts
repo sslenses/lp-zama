@@ -11,11 +11,12 @@ export interface PaymentMethodOption {
 
 export const PAYMENT_METHODS: PaymentMethodOption[] = [
   // Virtual Accounts
-  { code: 'B1', name: 'BCA Virtual Account', category: 'va', icon: 'https://images.duitku.com/hotlink-ok/BCA.PNG', fee: 4000, description: 'Transfer instan via m-BCA, KlikBCA, & ATM BCA' },
+  { code: 'BC', name: 'BCA Virtual Account', category: 'va', icon: 'https://images.duitku.com/hotlink-ok/BCA.PNG', fee: 4000, description: 'Transfer instan via m-BCA, KlikBCA, & ATM BCA' },
   { code: 'M2', name: 'Mandiri Virtual Account', category: 'va', icon: 'https://images.duitku.com/hotlink-ok/MANDIRI.PNG', fee: 4000, description: 'Transfer via Livin by Mandiri & ATM Mandiri' },
-  { code: 'B8', name: 'BRI Virtual Account', category: 'va', icon: 'https://images.duitku.com/hotlink-ok/BRI.PNG', fee: 4000, description: 'Transfer via BRImo & ATM BRI' },
+  { code: 'BR', name: 'BRI Virtual Account', category: 'va', icon: 'https://images.duitku.com/hotlink-ok/BRI.PNG', fee: 4000, description: 'Transfer via BRImo & ATM BRI' },
   { code: 'I1', name: 'BNI Virtual Account', category: 'va', icon: 'https://images.duitku.com/hotlink-ok/BNI.PNG', fee: 4000, description: 'Transfer via BNI Mobile Banking & ATM BNI' },
   { code: 'BT', name: 'Permata Virtual Account', category: 'va', icon: 'https://images.duitku.com/hotlink-ok/PERMATA.PNG', fee: 4000, description: 'Transfer via PermataMobile X & ATM' },
+  { code: 'B1', name: 'CIMB Niaga Virtual Account', category: 'va', icon: 'https://images.duitku.com/hotlink-ok/CIMB.PNG', fee: 4000, description: 'Transfer via OCTO Mobile & ATM CIMB Niaga' },
   
   // QRIS & E-Wallet
   { code: 'LQ', name: 'QRIS (All Payment)', category: 'qris', icon: 'https://images.duitku.com/hotlink-ok/QRIS.PNG', fee: 0, description: 'Scan QRIS via Gopay, ShopeePay, OVO, Dana, LinkAja, & Mobile Banking' },
