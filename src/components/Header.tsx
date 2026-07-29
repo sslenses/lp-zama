@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Wifi, Menu, X, CreditCard, ShieldCheck } from 'lucide-react';
+import { Wifi, Menu, X, CreditCard } from 'lucide-react';
 
 interface HeaderProps {
   onOpenModal: (packageName?: string) => void;
@@ -11,192 +11,139 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <header className={`header ${scrolled ? 'header-scrolled' : ''}`}>
-      {/* Top Ticker Status Bar */}
-      <div className="top-status-bar">
-        <div className="container status-bar-content">
-          <div className="status-item">
-            <span className="live-dot"></span>
-            <span>Jaringan Fiber Optic D.I. Yogyakarta: <strong>Active (100% Normal)</strong></span>
-          </div>
-          <div className="status-item hide-mobile">
-            <ShieldCheck size={14} className="icon-shield" />
-            <span>Terhubung Duitku Payment Gateway (BCA, Mandiri, BRI, QRIS)</span>
-          </div>
+    <header className={`apple-header ${scrolled ? 'header-scrolled' : ''}`}>
+      {/* Top Banner Ribbon */}
+      <div className="apple-top-ribbon">
+        <div className="container ribbon-content">
+          <span>⚡ <strong>Zamanet Fast Promo:</strong> 50 Mbps Rp 135.000 & 100 Mbps Rp 165.000. Duitku Payment Gateway Verified.</span>
         </div>
       </div>
 
-      <div className="container header-container">
-        <a href="#" className="logo">
-          <div className="logo-icon-box">
-            <Wifi className="logo-wifi" size={22} />
+      <div className="container nav-wrapper">
+        <a href="#" className="apple-logo">
+          <div className="logo-badge">
+            <Wifi size={18} />
           </div>
-          <div className="logo-text-group">
-            <span className="logo-brand">ZAMANET</span>
-            <span className="logo-domain">zama.co.id</span>
-          </div>
+          <span className="logo-text">Zamanet</span>
         </a>
 
-        <nav className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
-          <a href="#hero" onClick={() => setMobileMenuOpen(false)}>Beranda</a>
-          <a href="#features" onClick={() => setMobileMenuOpen(false)}>Fitur</a>
-          <a href="#pricing" onClick={() => setMobileMenuOpen(false)}>Paket Internet</a>
+        <nav className={`apple-nav-links ${mobileMenuOpen ? 'active' : ''}`}>
+          <a href="#hero" onClick={() => setMobileMenuOpen(false)}>Ikhtisar</a>
+          <a href="#features" onClick={() => setMobileMenuOpen(false)}>Spesifikasi</a>
+          <a href="#pricing" onClick={() => setMobileMenuOpen(false)}>Paket & Harga</a>
           <a href="#calculator" onClick={() => setMobileMenuOpen(false)}>Kalkulator Mbps</a>
           <a href="#coverage" onClick={() => setMobileMenuOpen(false)}>Cek Area</a>
-          <a href="#faq" onClick={() => setMobileMenuOpen(false)}>FAQ</a>
+          <a href="#faq" onClick={() => setMobileMenuOpen(false)}>Dukungan</a>
         </nav>
 
-        <div className="header-actions">
-          <button className="btn btn-primary btn-nav" onClick={() => onOpenModal()}>
-            <CreditCard size={18} />
-            <span>Bayar & Langganan</span>
+        <div className="header-cta-group">
+          <button className="btn btn-primary btn-apple-nav" onClick={() => onOpenModal()}>
+            <CreditCard size={16} />
+            <span>Berlangganan</span>
           </button>
 
           <button 
-            className="mobile-toggle" 
+            className="apple-mobile-toggle" 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
       <style>{`
-        .header {
+        .apple-header {
           position: fixed;
           top: 0;
           left: 0;
           width: 100%;
-          z-index: 100;
+          z-index: 1000;
+          background: rgba(255, 255, 255, 0.8);
+          backdrop-filter: saturate(180%) blur(20px);
+          -webkit-backdrop-filter: saturate(180%) blur(20px);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
           transition: all 0.3s ease;
         }
 
-        .top-status-bar {
-          background: #0f172a;
-          color: #94a3b8;
+        .apple-top-ribbon {
+          background: #1d1d1f;
+          color: #f5f5f7;
           font-size: 0.78rem;
           padding: 6px 0;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          text-align: center;
         }
 
-        .status-bar-content {
+        .ribbon-content strong {
+          color: #2997ff;
+        }
+
+        .nav-wrapper {
           display: flex;
-          justify-content: space-between;
           align-items: center;
+          justify-content: space-between;
+          height: 52px;
         }
 
-        .status-item {
+        .apple-logo {
           display: flex;
           align-items: center;
           gap: 8px;
-        }
-
-        .status-item strong {
-          color: #38bdf8;
-        }
-
-        .live-dot {
-          width: 7px;
-          height: 7px;
-          border-radius: 50%;
-          background: #10b981;
-          box-shadow: 0 0 8px #10b981;
-          animation: pulse 1.5s infinite;
-        }
-
-        .icon-shield {
-          color: #38bdf8;
-        }
-
-        .header-container {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding-top: 14px;
-          padding-bottom: 14px;
-        }
-
-        .header-scrolled {
-          background: rgba(255, 255, 255, 0.94);
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
-          border-bottom: 1px solid var(--border-light);
-          box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
-        }
-
-        .logo {
-          display: flex;
-          align-items: center;
-          gap: 12px;
           text-decoration: none;
+          color: var(--text-main);
         }
 
-        .logo-icon-box {
-          width: 42px;
-          height: 42px;
-          border-radius: 12px;
-          background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+        .logo-badge {
+          width: 32px;
+          height: 32px;
+          border-radius: 8px;
+          background: var(--apple-blue);
+          color: #ffffff;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #ffffff;
-          box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
         }
 
-        .logo-text-group {
-          display: flex;
-          flex-direction: column;
-        }
-
-        .logo-brand {
+        .logo-text {
           font-family: var(--font-heading);
-          font-size: 1.35rem;
-          font-weight: 800;
-          letter-spacing: 0.5px;
-          color: var(--text-main);
-          line-height: 1;
-        }
-
-        .logo-domain {
-          font-size: 0.75rem;
-          color: var(--primary-blue);
           font-weight: 700;
-          letter-spacing: 0.5px;
+          font-size: 1.2rem;
+          letter-spacing: -0.02em;
         }
 
-        .nav-menu {
+        .apple-nav-links {
           display: flex;
           align-items: center;
-          gap: 32px;
+          gap: 36px;
         }
 
-        .nav-menu a {
-          color: var(--text-muted);
+        .apple-nav-links a {
+          color: var(--text-main);
+          opacity: 0.8;
           text-decoration: none;
-          font-weight: 600;
-          font-size: 0.95rem;
-          transition: all 0.2s ease;
+          font-size: 0.88rem;
+          font-weight: 500;
+          transition: opacity 0.2s ease;
         }
 
-        .nav-menu a:hover {
-          color: var(--primary-blue);
+        .apple-nav-links a:hover {
+          opacity: 1;
+          color: var(--apple-blue);
         }
 
-        .header-actions {
-          display: flex;
-          align-items: center;
-          gap: 16px;
+        .btn-apple-nav {
+          padding: 8px 18px;
+          font-size: 0.85rem;
         }
 
-        .mobile-toggle {
+        .apple-mobile-toggle {
           display: none;
           background: transparent;
           border: none;
@@ -204,18 +151,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
           cursor: pointer;
         }
 
-        @media (max-width: 992px) {
-          .hide-mobile { display: none; }
-          .nav-menu {
+        @media (max-width: 868px) {
+          .apple-top-ribbon { font-size: 0.72rem; }
+          .apple-nav-links {
             position: fixed;
-            top: 85px;
+            top: 76px;
             left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(20px);
             flex-direction: column;
             padding: 30px;
-            gap: 20px;
+            gap: 24px;
             border-bottom: 1px solid var(--border-light);
             transform: translateY(-150%);
             opacity: 0;
@@ -223,19 +170,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
             transition: all 0.3s ease;
           }
 
-          .nav-menu.active {
+          .apple-nav-links.active {
             transform: translateY(0);
             opacity: 1;
             pointer-events: auto;
           }
 
-          .mobile-toggle {
+          .apple-mobile-toggle {
             display: block;
-          }
-
-          .btn-nav {
-            padding: 10px 18px;
-            font-size: 0.88rem;
           }
         }
       `}</style>
