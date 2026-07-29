@@ -99,33 +99,39 @@ export const createDuitkuTransaction = async (
   };
 
   try {
-    // Call through local proxy or direct endpoint
-    const endpoint = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-      ? '/api/duitku/webapi/api/merchant/v2/inquiry'
-      : 'https://sandbox.duitku.com/webapi/api/merchant/v2/inquiry';
+    // Call through server proxy endpoint (/api/duitku) or direct Duitku API
+    const endpoints = [
+      '/api/duitku/webapi/api/merchant/v2/inquiry',
+      'https://sandbox.duitku.com/webapi/api/merchant/v2/inquiry'
+    ];
 
-    const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      }
-    );
+    for (const endpoint of endpoints) {
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
 
-    if (response.ok) {
-      const data = await response.json();
-      if (data.statusCode === '00') {
-        return {
-          statusCode: '00',
-          statusMessage: 'SUCCESS',
-          paymentUrl: data.paymentUrl,
-          vaNumber: data.vaNumber,
-          qrCodeUrl: data.qrCode,
-          reference: data.reference,
-          merchantOrderId: req.merchantOrderId,
-          amount: req.paymentAmount
-        };
+        if (response.ok) {
+          const data = await response.json();
+          if (data.statusCode === '00') {
+            return {
+              statusCode: '00',
+              statusMessage: 'SUCCESS',
+              paymentUrl: data.paymentUrl,
+              vaNumber: data.vaNumber,
+              qrCodeUrl: data.qrCode,
+              reference: data.reference,
+              merchantOrderId: req.merchantOrderId,
+              amount: req.paymentAmount
+            };
+          }
+        }
+      } catch (err) {
+        // Try next endpoint
       }
     }
   } catch (error) {
