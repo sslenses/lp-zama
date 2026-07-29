@@ -99,9 +99,12 @@ export const createDuitkuTransaction = async (
   };
 
   try {
-    const response = await fetch(
-      'https://sandbox.duitku.com/webapi/api/merchant/v2/inquiry',
-      {
+    // Call through local proxy or direct endpoint
+    const endpoint = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+      ? '/api/duitku/webapi/api/merchant/v2/inquiry'
+      : 'https://sandbox.duitku.com/webapi/api/merchant/v2/inquiry';
+
+    const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
