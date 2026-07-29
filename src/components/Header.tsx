@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Wifi, Menu, X, CreditCard } from 'lucide-react';
+import { Wifi, Menu, X, CreditCard, ShieldCheck } from 'lucide-react';
 
 interface HeaderProps {
   onOpenModal: (packageName?: string) => void;
@@ -19,6 +19,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
 
   return (
     <header className={`header ${scrolled ? 'header-scrolled' : ''}`}>
+      {/* Top Ticker Status Bar */}
+      <div className="top-status-bar">
+        <div className="container status-bar-content">
+          <div className="status-item">
+            <span className="live-dot"></span>
+            <span>Jaringan Fiber Optic D.I. Yogyakarta: <strong>Active (100% Normal)</strong></span>
+          </div>
+          <div className="status-item hide-mobile">
+            <ShieldCheck size={14} className="icon-shield" />
+            <span>Terhubung Duitku Payment Gateway (BCA, Mandiri, BRI, QRIS)</span>
+          </div>
+        </div>
+      </div>
+
       <div className="container header-container">
         <a href="#" className="logo">
           <div className="logo-icon-box">
@@ -62,23 +76,60 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
           left: 0;
           width: 100%;
           z-index: 100;
-          padding: 20px 0;
           transition: all 0.3s ease;
         }
 
-        .header-scrolled {
-          padding: 12px 0;
-          background: rgba(255, 255, 255, 0.92);
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
-          border-bottom: 1px solid var(--border-light);
-          box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+        .top-status-bar {
+          background: #0f172a;
+          color: #94a3b8;
+          font-size: 0.78rem;
+          padding: 6px 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .status-bar-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .status-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .status-item strong {
+          color: #38bdf8;
+        }
+
+        .live-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #10b981;
+          box-shadow: 0 0 8px #10b981;
+          animation: pulse 1.5s infinite;
+        }
+
+        .icon-shield {
+          color: #38bdf8;
         }
 
         .header-container {
           display: flex;
           align-items: center;
           justify-content: space-between;
+          padding-top: 14px;
+          padding-bottom: 14px;
+        }
+
+        .header-scrolled {
+          background: rgba(255, 255, 255, 0.94);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          border-bottom: 1px solid var(--border-light);
+          box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
         }
 
         .logo {
@@ -154,9 +205,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
         }
 
         @media (max-width: 992px) {
+          .hide-mobile { display: none; }
           .nav-menu {
             position: fixed;
-            top: 70px;
+            top: 85px;
             left: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.98);
