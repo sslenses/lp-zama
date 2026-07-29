@@ -99,8 +99,9 @@ export const createDuitkuTransaction = async (
   };
 
   try {
-    // Call through serverless backend API (/api/inquiry), local proxy (/api/duitku), or direct Duitku API
+    // Call through Hostinger PHP proxy (/api/inquiry.php), Vercel serverless (/api/inquiry), local proxy (/api/duitku), or direct Duitku API
     const endpoints = [
+      '/api/inquiry.php',
       '/api/inquiry',
       '/api/duitku/webapi/api/merchant/v2/inquiry',
       'https://sandbox.duitku.com/webapi/api/merchant/v2/inquiry'
