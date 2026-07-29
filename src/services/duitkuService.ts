@@ -55,8 +55,8 @@ export const generateDuitkuSignature = (
   paymentAmount: number,
   apiKey: string
 ): string => {
-  const stringToSign = `${merchantCode}${merchantOrderId}${paymentAmount}`;
-  return CryptoJS.HmacSHA256(stringToSign, apiKey).toString(CryptoJS.enc.Hex);
+  const stringToSign = `${merchantCode}${merchantOrderId}${paymentAmount}${apiKey}`;
+  return CryptoJS.MD5(stringToSign).toString(CryptoJS.enc.Hex);
 };
 
 export const createDuitkuTransaction = async (
