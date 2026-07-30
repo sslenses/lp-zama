@@ -71,7 +71,7 @@ export const FaqSection: React.FC = () => {
 
       <style>{`
         .faq-section {
-          padding: 48px 0;
+          padding: 64px 0;
         }
 
         .faq-list {
@@ -89,8 +89,8 @@ export const FaqSection: React.FC = () => {
         }
 
         .faq-item.open {
-          border-color: var(--border-hover);
-          box-shadow: var(--shadow-md);
+          border-color: var(--gf-blue);
+          box-shadow: var(--shadow-2);
         }
 
         .faq-question-btn {
@@ -104,7 +104,7 @@ export const FaqSection: React.FC = () => {
           color: var(--text-main);
           font-family: var(--font-heading);
           font-size: 1.02rem;
-          font-weight: 700;
+          font-weight: 600;
           cursor: pointer;
           text-align: left;
           gap: 16px;
@@ -117,7 +117,7 @@ export const FaqSection: React.FC = () => {
         }
 
         .q-icon {
-          color: var(--primary-blue);
+          color: var(--gf-blue);
           flex-shrink: 0;
         }
 
@@ -129,7 +129,7 @@ export const FaqSection: React.FC = () => {
 
         .arrow-icon.rotated {
           transform: rotate(180deg);
-          color: var(--primary-blue);
+          color: var(--gf-blue);
         }
 
         .faq-answer {
