@@ -26,16 +26,6 @@ export function App() {
 
   return (
     <div className="app-root">
-      {/* Background Ambient Glow FX (Light Mode) */}
-      <div className="bg-glow-wrapper">
-        <div className="glow-orb orb-1"></div>
-        <div className="glow-orb orb-2"></div>
-        <div className="glow-orb orb-3"></div>
-      </div>
-
-      {/* Subtle Grid Pattern */}
-      <div className="grid-overlay"></div>
-
       {/* Navigation Header */}
       <Header onOpenModal={handleOpenModal} />
 
