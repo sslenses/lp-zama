@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronRight, Gauge, CreditCard, RefreshCw, Lock, Server, Network, Download, Upload, Activity } from 'lucide-react';
+import { ChevronRight, Gauge, CreditCard, RefreshCw, Lock, Server, Network, Download, Upload, Activity, Check } from 'lucide-react';
 
 interface HeroProps {
   onOpenModal: (packageName?: string) => void;
@@ -97,10 +97,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         <div className="apple-hero-text">
           <span className="apple-eyebrow">BARU • FIBER OPTIC D.I. YOGYAKARTA</span>
           <h1 className="apple-hero-title">
-            Zamanet.<br />Kecepatan Fiber Murni.
+            Zamanet.<br />
+            <span className="gradient-text-apple">Kecepatan Serat Optik Murni.</span>
           </h1>
           <p className="apple-hero-subtitle">
-            Koneksi internet serat optik termutakhir dengan rasio simetris 1:1, <strong>0% FUP (Real Unlimited)</strong>, dan kemudahan pembayaran otomatis via <strong>Duitku Payment Gateway</strong>.
+            Internet tanpa batas untuk rumah dan usaha Anda. <strong>0% FUP (Real Unlimited)</strong>. Tanpa kompromi.
           </p>
 
           <div className="apple-hero-cta">
@@ -151,7 +152,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
               {testPhase === 'pinging' && <span>Fase 1/3: Mengukur Latensi Ping...</span>}
               {testPhase === 'download' && <span className="active-dl"><Download size={14} /> Fase 2/3: Mengukur Kecepatan Unduh (Download)...</span>}
               {testPhase === 'upload' && <span className="active-ul"><Upload size={14} /> Fase 3/3: Mengukur Kecepatan Unggah (Upload)...</span>}
-              {testPhase === 'complete' && <span className="active-complete">✓ Pengujian Selesai</span>}
+              {testPhase === 'complete' && <span className="active-complete"><Check size={14} /> Pengujian Selesai</span>}
             </div>
 
             <div className="gauge-display">
