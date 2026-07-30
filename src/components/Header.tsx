@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Wifi, Menu, X, CreditCard } from 'lucide-react';
+import { Wifi, Menu, X, CreditCard, Zap } from 'lucide-react';
 
 interface HeaderProps {
   onOpenModal: (packageName?: string) => void;
@@ -22,7 +22,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
       {/* Top Banner Ribbon */}
       <div className="apple-top-ribbon">
         <div className="container ribbon-content">
-          <span>⚡ <strong>Zamanet Fast Promo:</strong> 50 Mbps Rp 135.000 & 100 Mbps Rp 165.000. Duitku Payment Gateway Verified.</span>
+          <Zap size={14} className="ribbon-icon" />
+          <span><strong>Zamanet Fast Promo:</strong> 50 Mbps Rp 135.000 & 100 Mbps Rp 165.000. Duitku Payment Gateway Verified.</span>
         </div>
       </div>
 
@@ -78,6 +79,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
           font-size: 0.78rem;
           padding: 6px 0;
           text-align: center;
+        }
+
+        .ribbon-content {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+        }
+
+        .ribbon-icon {
+          color: #2997ff;
+          flex-shrink: 0;
         }
 
         .ribbon-content strong {
