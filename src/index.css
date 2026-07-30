@@ -46,12 +46,12 @@ html {
 }
 
 section {
-  min-height: 100vh;
+  min-height: calc(100vh - 76px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   scroll-margin-top: 76px;
-  padding: 90px 0 60px;
+  padding: 40px 0;
   position: relative;
 }
 
@@ -231,32 +231,32 @@ h1, h2, h3, h4, h5, h6 {
 .section-header {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto 60px;
+  margin: 0 auto 28px;
 }
 
 .section-header .tag {
   display: inline-block;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--apple-blue);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .section-header h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 800;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   line-height: 1.1;
   color: var(--text-main);
 }
 
 .section-header p {
   color: var(--text-muted);
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 @media (max-width: 768px) {
