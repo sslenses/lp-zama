@@ -128,8 +128,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
 
       <style>{`
         .apple-pricing-section {
-          min-height: 100vh;
-          padding: 100px 0 60px;
+          min-height: calc(100vh - 76px);
+          padding: 30px 0;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -138,7 +138,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
         .apple-segmented-container {
           display: flex;
           justify-content: center;
-          margin-bottom: 24px;
+          margin-bottom: 16px;
         }
 
         .apple-segmented-control {
@@ -153,14 +153,14 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
           display: flex;
           align-items: center;
           gap: 8px;
-          padding: 10px 24px;
+          padding: 8px 18px;
           border-radius: var(--radius-full);
           border: none;
           background: transparent;
           color: var(--text-main);
           font-family: var(--font-body);
           font-weight: 600;
-          font-size: 0.95rem;
+          font-size: 0.88rem;
           cursor: pointer;
           transition: all 0.25s ease;
         }
@@ -173,7 +173,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
 
         .apple-banner-box {
           max-width: 740px;
-          margin: 0 auto 40px;
+          margin: 0 auto 20px;
         }
 
         .banner-inner {
@@ -181,9 +181,9 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
           align-items: center;
           justify-content: center;
           gap: 10px;
-          padding: 12px 20px;
+          padding: 8px 16px;
           border-radius: var(--radius-md);
-          font-size: 0.92rem;
+          font-size: 0.85rem;
         }
 
         .fast-banner {
@@ -200,11 +200,11 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
 
         .apple-pricing-grid {
           display: grid;
-          gap: 28px;
+          gap: 20px;
         }
 
         .grid-two {
-          grid-template-columns: repeat(2, minmax(0, 480px));
+          grid-template-columns: repeat(2, minmax(0, 440px));
           justify-content: center;
         }
 
@@ -213,7 +213,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
         }
 
         .apple-pricing-card {
-          padding: 36px 32px;
+          padding: 22px 24px;
           background: #ffffff;
           border-radius: var(--radius-lg);
           box-shadow: var(--shadow-apple);
