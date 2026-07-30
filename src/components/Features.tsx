@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, Repeat, Zap, CreditCard } from 'lucide-react';
+import { Cpu, Repeat, Zap } from 'lucide-react';
 
 export const Features: React.FC = () => {
   return (
@@ -13,45 +13,49 @@ export const Features: React.FC = () => {
           </p>
         </div>
 
-        {/* Bento Grid Architecture */}
+        {/* Apple 3-Column Equal Bento Grid */}
         <div className="bento-grid">
-          {/* Card 1: Span 2 Columns - 100% Fiber */}
-          <div className="bento-card bento-card-large glass-card">
-            <div className="bento-badge badge-blue">
-              <Cpu size={14} /> 100% Fiber Optic Direct
+          {/* Card 1: 100% Fiber Direct */}
+          <div className="bento-card glass-card">
+            <div>
+              <div className="bento-badge badge-blue">
+                <Cpu size={14} /> 100% Fiber Optic Direct
+              </div>
+              <h3>Serat Optik Murni Langsung ke Rumah</h3>
+              <p>
+                Kabel serat optik ditarik khusus langsung hingga ke modem router rumah Anda. Tahan gangguan cuaca hujan & petir 24/7.
+              </p>
             </div>
-            <h3>Serat Optik Murni Langsung ke Dalam Rumah</h3>
-            <p>
-              Kabel serat optik ditarik khusus langsung hingga ke modem router rumah Anda. Tahan terhadap gangguan cuaca hujan & petir di D.I. Yogyakarta dengan koneksi super stabil 24/7.
-            </p>
 
             <div className="fiber-graphic-box">
               <div className="fnode fn-1">ODP Tiang Utama</div>
               <div className="fline">
                 <span className="fline-pulse"></span>
               </div>
-              <div className="fnode fn-2">Modem Wi-Fi Rumah</div>
+              <div className="fnode fn-2">Modem Router</div>
             </div>
           </div>
 
-          {/* Card 2: 1:1 Speed */}
+          {/* Card 2: 1:1 Speed Ratio */}
           <div className="bento-card glass-card">
-            <div className="bento-badge badge-indigo">
-              <Repeat size={14} /> Kecepatan Simetris 1:1
+            <div>
+              <div className="bento-badge badge-indigo">
+                <Repeat size={14} /> Kecepatan Simetris 1:1
+              </div>
+              <h3>Upload & Download Sama Kencangnya</h3>
+              <p>
+                Tidak ada throttling unggah file! Live streaming 4K, video call HD, dan upload repository project berjalan instan tanpa buffer.
+              </p>
             </div>
-            <h3>Upload & Download Sama Kencangnya</h3>
-            <p>
-              Tidak ada throttling unggah file! Live streaming 4K, video call Zoom HD, dan upload repository project berjalan instan tanpa buffer.
-            </p>
 
             <div className="speed-comparison-box">
               <div className="sc-item">
-                <span className="sc-label">Download Speed</span>
+                <span className="sc-label">Download</span>
                 <span className="sc-val">100 Mbps</span>
               </div>
               <div className="sc-divider">=</div>
               <div className="sc-item">
-                <span className="sc-label">Upload Speed</span>
+                <span className="sc-label">Upload</span>
                 <span className="sc-val">100 Mbps</span>
               </div>
             </div>
@@ -59,36 +63,19 @@ export const Features: React.FC = () => {
 
           {/* Card 3: Real Unlimited 0% FUP */}
           <div className="bento-card glass-card">
-            <div className="bento-badge badge-emerald">
-              <Zap size={14} /> Real Unlimited (0% FUP)
+            <div>
+              <div className="bento-badge badge-emerald">
+                <Zap size={14} /> Real Unlimited (0% FUP)
+              </div>
+              <h3>Bebas Akses Tanpa Batasan Kuota</h3>
+              <p>
+                Unduh file game 100GB+ sepuasnya tanpa khawatir kecepatan diturunkan sepihak. 100% Real Unlimited.
+              </p>
             </div>
-            <h3>Tanpa Batasan Kuota Wajar</h3>
-            <p>
-              Bebas unduh file game 100GB+ sepuasnya! Kecepatan internet Anda dijamin tidak akan pernah diturunkan secara sepihak.
-            </p>
 
             <div className="unlimited-counter-box">
               <span className="uc-num">∞ TB</span>
               <span className="uc-txt">Bebas Pakai Sepuasnya</span>
-            </div>
-          </div>
-
-          {/* Card 4: Span 2 Columns - Duitku Payment */}
-          <div className="bento-card bento-card-large glass-card">
-            <div className="bento-badge badge-amber">
-              <CreditCard size={14} /> Duitku Payment Gateway
-            </div>
-            <h3>Pembayaran Instan & Otomatis Terverifikasi</h3>
-            <p>
-              Berlangganan tanpa antre! Didukung Duitku Payment Gateway untuk pembayaran otomatis melalui Bank Virtual Account (BCA, Mandiri, BRI, BNI, Permata), QRIS All Payment, dan E-Wallet.
-            </p>
-
-            <div className="payment-brands-row">
-              <div className="pbrand-badge">BCA Virtual Account</div>
-              <div className="pbrand-badge">Mandiri VA</div>
-              <div className="pbrand-badge">BRImo VA</div>
-              <div className="pbrand-badge">QRIS Instant</div>
-              <div className="pbrand-badge">ShopeePay</div>
             </div>
           </div>
         </div>
@@ -106,19 +93,16 @@ export const Features: React.FC = () => {
         .bento-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 16px;
+          gap: 20px;
         }
 
         .bento-card {
-          padding: 22px 24px;
+          padding: 28px;
           background: #ffffff;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-        }
-
-        .bento-card-large {
-          grid-column: span 2;
+          border-radius: var(--radius-lg);
         }
 
         .bento-badge {
@@ -130,27 +114,27 @@ export const Features: React.FC = () => {
           font-size: 0.75rem;
           font-weight: 700;
           text-transform: uppercase;
-          margin-bottom: 10px;
+          margin-bottom: 14px;
           width: fit-content;
         }
 
-        .badge-blue { background: var(--primary-blue-light); color: var(--primary-blue-dark); }
-        .badge-indigo { background: var(--accent-indigo-light); color: #3730a3; }
+        .badge-blue { background: var(--apple-blue-light); color: var(--apple-blue-dark); }
+        .badge-indigo { background: #eef2ff; color: #3730a3; }
         .badge-emerald { background: var(--accent-emerald-light); color: #065f46; }
-        .badge-amber { background: var(--accent-amber-light); color: #92400e; }
 
         .bento-card h3 {
-          font-size: 1.2rem;
+          font-size: 1.25rem;
           font-weight: 800;
-          margin-bottom: 6px;
+          margin-bottom: 8px;
           color: var(--text-main);
+          line-height: 1.25;
         }
 
         .bento-card p {
           color: var(--text-muted);
           font-size: 0.9rem;
           line-height: 1.45;
-          margin-bottom: 14px;
+          margin-bottom: 20px;
         }
 
         /* Fiber Graphic Box */
@@ -160,25 +144,26 @@ export const Features: React.FC = () => {
           justify-content: space-between;
           background: var(--bg-main);
           border: 1px solid var(--border-light);
-          padding: 10px 16px;
+          padding: 12px 16px;
           border-radius: var(--radius-md);
         }
 
         .fnode {
-          font-size: 0.85rem;
+          font-size: 0.78rem;
           font-weight: 700;
           color: var(--text-main);
           background: #ffffff;
-          padding: 6px 14px;
+          padding: 5px 10px;
           border-radius: var(--radius-sm);
           border: 1px solid var(--border-light);
+          white-space: nowrap;
         }
 
         .fline {
           flex-grow: 1;
           height: 4px;
           background: var(--border-light);
-          margin: 0 16px;
+          margin: 0 10px;
           position: relative;
           border-radius: 2px;
           overflow: hidden;
@@ -190,7 +175,7 @@ export const Features: React.FC = () => {
           left: 0;
           width: 50%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+          background: linear-gradient(90deg, transparent, var(--apple-blue), transparent);
           animation: flineMove 1.5s linear infinite;
         }
 
@@ -206,7 +191,7 @@ export const Features: React.FC = () => {
           justify-content: space-around;
           background: var(--bg-main);
           border: 1px solid var(--border-light);
-          padding: 14px;
+          padding: 12px;
           border-radius: var(--radius-md);
         }
 
@@ -217,7 +202,7 @@ export const Features: React.FC = () => {
         }
 
         .sc-label {
-          font-size: 0.72rem;
+          font-size: 0.7rem;
           color: var(--text-dim);
           text-transform: uppercase;
         }
@@ -226,12 +211,12 @@ export const Features: React.FC = () => {
           font-family: var(--font-heading);
           font-size: 1.1rem;
           font-weight: 800;
-          color: var(--primary-blue-dark);
+          color: var(--apple-blue-dark);
         }
 
         .sc-divider {
           font-family: var(--font-heading);
-          font-size: 1.5rem;
+          font-size: 1.4rem;
           font-weight: 800;
           color: var(--accent-emerald);
         }
@@ -241,48 +226,28 @@ export const Features: React.FC = () => {
           background: var(--accent-emerald-light);
           border: 1px solid rgba(16, 185, 129, 0.2);
           border-radius: var(--radius-md);
-          padding: 16px;
+          padding: 12px;
           text-align: center;
         }
 
         .uc-num {
           font-family: var(--font-heading);
-          font-size: 2.2rem;
+          font-size: 1.8rem;
           font-weight: 800;
           color: #065f46;
           display: block;
+          line-height: 1;
         }
 
         .uc-txt {
-          font-size: 0.8rem;
+          font-size: 0.78rem;
           font-weight: 700;
           color: #047857;
-        }
-
-        /* Payment Brands Row */
-        .payment-brands-row {
-          display: flex;
-          gap: 10px;
-          flex-wrap: wrap;
-        }
-
-        .pbrand-badge {
-          background: #ffffff;
-          border: 1px solid var(--border-light);
-          padding: 8px 14px;
-          border-radius: var(--radius-sm);
-          font-size: 0.82rem;
-          font-weight: 700;
-          color: var(--text-main);
-          box-shadow: var(--shadow-sm);
         }
 
         @media (max-width: 992px) {
           .bento-grid {
             grid-template-columns: 1fr;
-          }
-          .bento-card-large {
-            grid-column: span 1;
           }
         }
       `}</style>
