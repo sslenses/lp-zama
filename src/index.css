@@ -49,9 +49,9 @@ section {
   min-height: calc(100vh - 76px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   scroll-margin-top: 76px;
-  padding: 40px 0;
+  padding: 48px 0 32px;
   position: relative;
 }
 
@@ -231,7 +231,7 @@ h1, h2, h3, h4, h5, h6 {
 .section-header {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto 28px;
+  margin: 0 auto 20px;
 }
 
 .section-header .tag {
