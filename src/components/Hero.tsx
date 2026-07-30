@@ -36,8 +36,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
 
       <style>{`
         .apple-hero-section {
-          min-height: calc(100vh - 76px);
-          padding: 0;
+          height: 100vh;
+          box-sizing: border-box;
+          padding-top: 76px;
           display: flex;
           flex-direction: column;
           align-items: center;
