@@ -206,7 +206,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
 
       <style>{`
         .apple-hero-section {
-          padding: 150px 0 90px;
+          min-height: 100vh;
+          padding: 110px 0 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           text-align: center;
         }
 
