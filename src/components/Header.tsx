@@ -28,14 +28,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
       </div>
 
       <div className="container nav-wrapper">
-        <a href="#" className="apple-logo">
+        <a href="#" className="apple-logo" aria-label="Zamanet Beranda">
           <div className="logo-badge">
             <Wifi size={18} />
           </div>
           <span className="logo-text">Zamanet</span>
         </a>
 
-        <nav className={`apple-nav-links ${mobileMenuOpen ? 'active' : ''}`}>
+        <nav className={`apple-nav-links ${mobileMenuOpen ? 'active' : ''}`} aria-label="Navigasi Utama">
           <a href="#features" onClick={() => setMobileMenuOpen(false)}>Spesifikasi</a>
           <a href="#pricing" onClick={() => setMobileMenuOpen(false)}>Paket & Harga</a>
           <a href="#calculator" onClick={() => setMobileMenuOpen(false)}>Kalkulator Mbps</a>
@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
         </nav>
 
         <div className="header-cta-group">
-          <button className="btn btn-primary btn-apple-nav" onClick={() => onOpenModal()}>
+          <button className="btn btn-primary btn-apple-nav" onClick={() => onOpenModal()} aria-label="Berlangganan Paket Zamanet">
             <CreditCard size={16} />
             <span>Berlangganan</span>
           </button>
@@ -52,7 +52,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
           <button 
             className="apple-mobile-toggle" 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={mobileMenuOpen ? "Tutup Menu Navigasi" : "Buka Menu Navigasi"}
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
