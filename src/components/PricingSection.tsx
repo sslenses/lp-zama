@@ -129,10 +129,10 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
       <style>{`
         .apple-pricing-section {
           min-height: calc(100vh - 76px);
-          padding: 30px 0;
+          padding: 40px 0 32px;
           display: flex;
-          align-items: center;
-          justify-content: center;
+          flex-direction: column;
+          justify-content: flex-start;
         }
 
         .apple-segmented-container {
