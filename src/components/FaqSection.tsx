@@ -45,7 +45,13 @@ export const FaqSection: React.FC = () => {
         <div className="faq-list">
           {faqs.map((faq, idx) => (
             <div key={idx} className={`faq-item glass-card ${openIdx === idx ? 'open' : ''}`}>
-              <button className="faq-question-btn" onClick={() => toggleFaq(idx)}>
+              <button
+                className="faq-question-btn"
+                onClick={() => toggleFaq(idx)}
+                aria-expanded={openIdx === idx}
+                aria-controls={`faq-answer-${idx}`}
+                aria-label={faq.q}
+              >
                 <div className="q-title-group">
                   <HelpCircle size={20} className="q-icon" />
                   <span>{faq.q}</span>
@@ -54,7 +60,7 @@ export const FaqSection: React.FC = () => {
               </button>
 
               {openIdx === idx && (
-                <div className="faq-answer">
+                <div id={`faq-answer-${idx}`} className="faq-answer">
                   <p>{faq.a}</p>
                 </div>
               )}
