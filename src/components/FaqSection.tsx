@@ -89,7 +89,7 @@ export const FaqSection: React.FC = () => {
         }
 
         .faq-item.open {
-          border-color: var(--primary-blue);
+          border-color: var(--border-hover);
           box-shadow: var(--shadow-md);
         }
 
