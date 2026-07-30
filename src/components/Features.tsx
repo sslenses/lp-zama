@@ -96,8 +96,8 @@ export const Features: React.FC = () => {
 
       <style>{`
         .features-section {
-          min-height: 100vh;
-          padding: 100px 0 60px;
+          min-height: calc(100vh - 76px);
+          padding: 30px 0;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -106,11 +106,11 @@ export const Features: React.FC = () => {
         .bento-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
+          gap: 16px;
         }
 
         .bento-card {
-          padding: 32px;
+          padding: 22px 24px;
           background: #ffffff;
           display: flex;
           flex-direction: column;
@@ -125,12 +125,12 @@ export const Features: React.FC = () => {
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          padding: 6px 14px;
+          padding: 4px 12px;
           border-radius: var(--radius-full);
-          font-size: 0.8rem;
+          font-size: 0.75rem;
           font-weight: 700;
           text-transform: uppercase;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
           width: fit-content;
         }
 
@@ -140,17 +140,17 @@ export const Features: React.FC = () => {
         .badge-amber { background: var(--accent-amber-light); color: #92400e; }
 
         .bento-card h3 {
-          font-size: 1.45rem;
+          font-size: 1.2rem;
           font-weight: 800;
-          margin-bottom: 12px;
+          margin-bottom: 6px;
           color: var(--text-main);
         }
 
         .bento-card p {
           color: var(--text-muted);
-          font-size: 0.98rem;
-          line-height: 1.6;
-          margin-bottom: 24px;
+          font-size: 0.9rem;
+          line-height: 1.45;
+          margin-bottom: 14px;
         }
 
         /* Fiber Graphic Box */
@@ -160,7 +160,7 @@ export const Features: React.FC = () => {
           justify-content: space-between;
           background: var(--bg-main);
           border: 1px solid var(--border-light);
-          padding: 16px 24px;
+          padding: 10px 16px;
           border-radius: var(--radius-md);
         }
 
