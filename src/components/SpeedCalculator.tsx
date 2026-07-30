@@ -58,8 +58,9 @@ export const SpeedCalculator: React.FC<SpeedCalculatorProps> = ({ onOpenModal })
               <Calculator size={24} />
             </div>
             <div>
-              <h2>Kalkulator Mbps & Rekomendasi Paket</h2>
-              <p>Pilih preset profil penggunaan atau geser slider perangkat di bawah ini.</p>
+              <span className="tag">KALKULATOR BANDWIDTH</span>
+              <h2>Hitung Kebutuhan Mbps Anda.</h2>
+              <p>Pilih profil cepat atau geser slider jumlah perangkat untuk menemukan paket yang paling pas.</p>
             </div>
           </div>
 
