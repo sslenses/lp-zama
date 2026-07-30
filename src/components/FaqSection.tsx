@@ -65,11 +65,7 @@ export const FaqSection: React.FC = () => {
 
       <style>{`
         .faq-section {
-          min-height: calc(100vh - 76px);
-          padding: 60px 0;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+          padding: 48px 0;
         }
 
         .faq-list {
