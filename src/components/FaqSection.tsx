@@ -35,10 +35,10 @@ export const FaqSection: React.FC = () => {
     <section id="faq" className="faq-section">
       <div className="container">
         <div className="section-header">
-          <span className="tag">Paling Sering Ditanyakan</span>
-          <h2>Pertanyaan Umum (FAQ)</h2>
+          <span className="tag">DUKUNGAN</span>
+          <h2>Pertanyaan Umum.</h2>
           <p>
-            Temukan jawaban lengkap mengenai layanan, pembayaran Duitku, dan teknis pemasangan Zamanet.
+            Jawaban lengkap mengenai layanan, pembayaran Duitku, dan teknis pemasangan.
           </p>
         </div>
 
