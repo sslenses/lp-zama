@@ -130,11 +130,13 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
 
       <style>{`
         .coverage-section {
-          min-height: calc(100vh - 76px);
-          padding: 40px 0 32px;
+          height: 100vh;
+          box-sizing: border-box;
+          padding-top: 76px;
           display: flex;
           flex-direction: column;
-          justify-content: flex-start;
+          align-items: center;
+          justify-content: center;
         }
 
         .coverage-grid {
