@@ -6,10 +6,10 @@ export const Features: React.FC = () => {
     <section id="features" className="features-section">
       <div className="container">
         <div className="section-header">
-          <span className="tag">Keunggulan Utama</span>
-          <h2>Mengapa Ribuan Pelanggan Memilih Zamanet?</h2>
+          <span className="tag">KEUNGGULAN UTAMA</span>
+          <h2>Dirancang untuk Performa.</h2>
           <p>
-            Teknologi serat optik murni dipadukan dengan kebebasan internet unlimited tanpa FUP & pembayaran otomatis via Duitku Payment Gateway.
+            Teknologi serat optik murni dipadukan dengan kebebasan internet tanpa batasan FUP.
           </p>
         </div>
 
