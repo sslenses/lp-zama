@@ -24,9 +24,9 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
       <div className="container">
         <div className="section-header">
           <span className="tag">PILIHAN PAKET</span>
-          <h2>Temukan paket Zamanet yang pas untuk Anda.</h2>
+          <h2>Sederhana. Transparan. Pas untuk Anda.</h2>
           <p>
-            Tersedia pilihan paket promo hemat harian hingga bandwidth super cepat untuk usaha Anda. Pembayaran aman & otomatis via Duitku Gateway.
+            Pilih paket promo hemat harian hingga bandwidth super cepat untuk usaha Anda. Bebas biaya tersembunyi.
           </p>
         </div>
 
@@ -94,7 +94,10 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
 
               <div className="inst-row">
                 {pkg.installationFee === 0 ? (
-                  <span className="free-inst">✓ Gratis Biaya Pasang (Rp 0)</span>
+                  <span className="free-inst" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                    <Check size={16} />
+                    Gratis Biaya Pasang (Rp 0)
+                  </span>
                 ) : (
                   <span className="paid-inst">Biaya Pasang: Rp {pkg.installationFee?.toLocaleString('id-ID')}</span>
                 )}
