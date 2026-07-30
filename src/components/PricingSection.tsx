@@ -225,7 +225,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
         }
 
         .popular-card {
-          border: 2px solid var(--apple-blue);
+          border: 1px solid var(--border-light);
         }
 
         .apple-card-badge {
