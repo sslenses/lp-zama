@@ -158,60 +158,61 @@ export const SpeedCalculator: React.FC<SpeedCalculatorProps> = ({ onOpenModal })
 
       <style>{`
         .calc-section {
-          min-height: 100vh;
-          padding: 100px 0 60px;
+          min-height: calc(100vh - 76px);
+          padding: 30px 0;
           display: flex;
           align-items: center;
           justify-content: center;
         }
 
         .calc-card {
-          padding: 48px;
+          padding: 24px 32px;
           background: #ffffff;
         }
 
         .calc-header {
           display: flex;
           align-items: center;
-          gap: 20px;
-          margin-bottom: 28px;
+          gap: 14px;
+          margin-bottom: 16px;
         }
 
         .calc-icon-badge {
-          width: 56px;
-          height: 56px;
-          border-radius: 16px;
+          width: 44px;
+          height: 44px;
+          border-radius: 12px;
           background: var(--primary-blue-light);
           color: var(--primary-blue-dark);
           display: flex;
           align-items: center;
           justify-content: center;
+          flex-shrink: 0;
         }
 
         .calc-header h2 {
-          font-size: 2rem;
+          font-size: 1.8rem;
           font-weight: 800;
           color: var(--text-main);
         }
 
         .calc-header p {
           color: var(--text-muted);
-          font-size: 1rem;
+          font-size: 0.95rem;
         }
 
         .presets-bar {
           background: var(--bg-subtle);
           border: 1px solid var(--border-light);
-          padding: 16px 20px;
+          padding: 10px 16px;
           border-radius: var(--radius-md);
-          margin-bottom: 36px;
+          margin-bottom: 20px;
           display: flex;
           flex-direction: column;
-          gap: 12px;
+          gap: 6px;
         }
 
         .preset-title {
-          font-size: 0.85rem;
+          font-size: 0.8rem;
           font-weight: 700;
           color: var(--text-main);
         }
@@ -219,21 +220,21 @@ export const SpeedCalculator: React.FC<SpeedCalculatorProps> = ({ onOpenModal })
         .preset-buttons-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 10px;
+          gap: 8px;
         }
 
         .preset-btn {
           background: #ffffff;
           border: 1px solid var(--border-light);
-          padding: 10px 14px;
+          padding: 6px 12px;
           border-radius: var(--radius-sm);
-          font-size: 0.85rem;
+          font-size: 0.8rem;
           font-weight: 600;
           color: var(--text-main);
           cursor: pointer;
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 6px;
           transition: all 0.2s ease;
         }
 
@@ -246,12 +247,12 @@ export const SpeedCalculator: React.FC<SpeedCalculatorProps> = ({ onOpenModal })
         .calc-body {
           display: grid;
           grid-template-columns: 1.2fr 0.8fr;
-          gap: 40px;
+          gap: 24px;
           align-items: center;
         }
 
         .control-group {
-          margin-bottom: 30px;
+          margin-bottom: 16px;
         }
 
         .control-label-row {
