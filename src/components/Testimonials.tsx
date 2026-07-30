@@ -12,7 +12,7 @@ export const Testimonials: React.FC = () => {
     },
     {
       name: 'Siti Aminah',
-      role: 'Remote Software Engineer (Kasihan, Bantul)',
+      role: 'Remote Software Engineer (Tirtoadi, Sleman)',
       avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80',
       comment: 'Sebagai Web Developer yang WFH full, internet simetris 1:1 penting banget. Upload file project dan push repo ngebut tanpa putus. Harganya terjangkau banget untuk 50 Mbps!',
       rating: 5,
@@ -64,17 +64,17 @@ export const Testimonials: React.FC = () => {
 
       <style>{`
         .testi-section {
-          padding: 80px 0 100px;
+          padding: 64px 0;
         }
 
         .testi-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 28px;
+          gap: 20px;
         }
 
         .testi-card {
-          padding: 36px 28px;
+          padding: 28px 24px;
           display: flex;
           flex-direction: column;
           position: relative;
@@ -82,7 +82,7 @@ export const Testimonials: React.FC = () => {
         }
 
         .quote-icon {
-          color: rgba(2, 132, 199, 0.15);
+          color: rgba(26, 115, 232, 0.15);
           position: absolute;
           top: 24px;
           right: 24px;
@@ -95,8 +95,8 @@ export const Testimonials: React.FC = () => {
         }
 
         .star-filled {
-          color: var(--accent-amber);
-          fill: var(--accent-amber);
+          color: var(--gf-yellow);
+          fill: var(--gf-yellow);
         }
 
         .testi-text {
@@ -119,7 +119,7 @@ export const Testimonials: React.FC = () => {
           height: 48px;
           border-radius: 50%;
           object-fit: cover;
-          border: 2px solid var(--primary-blue);
+          border: 2px solid var(--gf-blue);
         }
 
         .user-info {
@@ -128,7 +128,7 @@ export const Testimonials: React.FC = () => {
         }
 
         .user-name {
-          font-weight: 700;
+          font-weight: 600;
           color: var(--text-main);
           font-size: 1rem;
         }
