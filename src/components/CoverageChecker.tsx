@@ -45,11 +45,13 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
 
             <form onSubmit={handleCheck} className="checker-form">
               <div className="form-field">
-                <label>Pilih Wilayah / Kecamatan:</label>
+                <label htmlFor="area-select">Pilih Wilayah / Kecamatan:</label>
                 <select
+                  id="area-select"
                   value={selectedArea}
                   onChange={(e) => setSelectedArea(e.target.value)}
                   className="custom-select"
+                  aria-label="Pilih Wilayah atau Kecamatan"
                 >
                   {areasList.map((area, idx) => (
                     <option key={idx} value={area}>{area}</option>
@@ -58,20 +60,22 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
               </div>
 
               <div className="form-field">
-                <label>Detail Alamat / Dusun / RT-RW:</label>
+                <label htmlFor="address-input">Alamat Lengkap / Dusun / RT RW:</label>
                 <input
+                  id="address-input"
                   type="text"
-                  placeholder="Contoh: Dusun Gubug, RT 02 / RW 05, Argosari"
+                  placeholder="Contoh: Jl. Wates Km 10, Argosari, Sedayu"
                   value={addressInput}
                   onChange={(e) => setAddressInput(e.target.value)}
                   className="custom-input"
+                  aria-label="Alamat Lengkap Rumah"
                   required
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary btn-full">
+              <button type="submit" className="btn btn-primary btn-full btn-lg" aria-label="Cek Ketersediaan Jaringan ODP">
                 <Search size={18} />
-                <span>Verifikasi Alamat Sekarang</span>
+                <span>Cek Ketersediaan Jaringan</span>
               </button>
             </form>
 
