@@ -93,11 +93,11 @@ export const Features: React.FC = () => {
         .bento-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 20px;
+          gap: 16px;
         }
 
         .bento-card {
-          padding: 28px;
+          padding: 20px 22px;
           background: #ffffff;
           display: flex;
           flex-direction: column;
@@ -109,12 +109,12 @@ export const Features: React.FC = () => {
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          padding: 4px 12px;
+          padding: 3px 10px;
           border-radius: var(--radius-full);
-          font-size: 0.75rem;
+          font-size: 0.72rem;
           font-weight: 700;
           text-transform: uppercase;
-          margin-bottom: 14px;
+          margin-bottom: 10px;
           width: fit-content;
         }
 
@@ -123,18 +123,18 @@ export const Features: React.FC = () => {
         .badge-emerald { background: var(--accent-emerald-light); color: #065f46; }
 
         .bento-card h3 {
-          font-size: 1.25rem;
+          font-size: 1.15rem;
           font-weight: 800;
-          margin-bottom: 8px;
+          margin-bottom: 6px;
           color: var(--text-main);
           line-height: 1.25;
         }
 
         .bento-card p {
           color: var(--text-muted);
-          font-size: 0.9rem;
-          line-height: 1.45;
-          margin-bottom: 20px;
+          font-size: 0.85rem;
+          line-height: 1.4;
+          margin-bottom: 14px;
         }
 
         /* Fiber Graphic Box */
@@ -144,16 +144,16 @@ export const Features: React.FC = () => {
           justify-content: space-between;
           background: var(--bg-main);
           border: 1px solid var(--border-light);
-          padding: 12px 16px;
+          padding: 8px 12px;
           border-radius: var(--radius-md);
         }
 
         .fnode {
-          font-size: 0.78rem;
+          font-size: 0.72rem;
           font-weight: 700;
           color: var(--text-main);
           background: #ffffff;
-          padding: 5px 10px;
+          padding: 4px 8px;
           border-radius: var(--radius-sm);
           border: 1px solid var(--border-light);
           white-space: nowrap;
@@ -161,9 +161,9 @@ export const Features: React.FC = () => {
 
         .fline {
           flex-grow: 1;
-          height: 4px;
+          height: 3px;
           background: var(--border-light);
-          margin: 0 10px;
+          margin: 0 8px;
           position: relative;
           border-radius: 2px;
           overflow: hidden;
@@ -191,7 +191,7 @@ export const Features: React.FC = () => {
           justify-content: space-around;
           background: var(--bg-main);
           border: 1px solid var(--border-light);
-          padding: 12px;
+          padding: 8px 12px;
           border-radius: var(--radius-md);
         }
 
@@ -202,21 +202,21 @@ export const Features: React.FC = () => {
         }
 
         .sc-label {
-          font-size: 0.7rem;
+          font-size: 0.65rem;
           color: var(--text-dim);
           text-transform: uppercase;
         }
 
         .sc-val {
           font-family: var(--font-heading);
-          font-size: 1.1rem;
+          font-size: 1rem;
           font-weight: 800;
           color: var(--apple-blue-dark);
         }
 
         .sc-divider {
           font-family: var(--font-heading);
-          font-size: 1.4rem;
+          font-size: 1.2rem;
           font-weight: 800;
           color: var(--accent-emerald);
         }
@@ -226,13 +226,13 @@ export const Features: React.FC = () => {
           background: var(--accent-emerald-light);
           border: 1px solid rgba(16, 185, 129, 0.2);
           border-radius: var(--radius-md);
-          padding: 12px;
+          padding: 8px 12px;
           text-align: center;
         }
 
         .uc-num {
           font-family: var(--font-heading);
-          font-size: 1.8rem;
+          font-size: 1.5rem;
           font-weight: 800;
           color: #065f46;
           display: block;
@@ -240,7 +240,7 @@ export const Features: React.FC = () => {
         }
 
         .uc-txt {
-          font-size: 0.78rem;
+          font-size: 0.72rem;
           font-weight: 700;
           color: #047857;
         }
