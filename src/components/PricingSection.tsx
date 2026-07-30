@@ -128,7 +128,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
 
       <style>{`
         .apple-pricing-section {
-          padding: 48px 0;
+          padding: 64px 0;
         }
 
         .apple-segmented-container {
@@ -139,7 +139,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
 
         .apple-segmented-control {
           display: inline-flex;
-          background: #e8e8ed;
+          background: #f1f3f4;
           padding: 4px;
           border-radius: var(--radius-full);
           gap: 4px;
@@ -155,7 +155,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
           background: transparent;
           color: var(--text-main);
           font-family: var(--font-body);
-          font-weight: 600;
+          font-weight: 500;
           font-size: 0.88rem;
           cursor: pointer;
           transition: all 0.25s ease;
@@ -163,8 +163,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
 
         .segmented-btn.active {
           background: #ffffff;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-          color: var(--apple-blue);
+          box-shadow: var(--shadow-1);
+          color: var(--gf-blue);
         }
 
         .apple-banner-box {
@@ -183,15 +183,15 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
         }
 
         .fast-banner {
-          background: var(--apple-blue-light);
-          color: var(--apple-blue-dark);
-          border: 1px solid rgba(0, 113, 227, 0.2);
+          background: var(--gf-blue-light);
+          color: var(--gf-blue-dark);
+          border: 1px solid rgba(26, 115, 232, 0.2);
         }
 
         .reguler-banner {
-          background: var(--accent-emerald-light);
+          background: var(--gf-green-light);
           color: #065f46;
-          border: 1px solid rgba(16, 185, 129, 0.2);
+          border: 1px solid rgba(52, 168, 83, 0.2);
         }
 
         .apple-pricing-grid {
@@ -212,24 +212,24 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
           padding: 18px 20px;
           background: #ffffff;
           border-radius: var(--radius-lg);
-          box-shadow: var(--shadow-apple);
+          box-shadow: var(--shadow-1);
           display: flex;
           flex-direction: column;
           position: relative;
         }
 
         .popular-card {
-          border: 1px solid var(--border-light);
+          border: 1px solid var(--gf-blue);
         }
 
         .apple-card-badge {
           position: absolute;
           top: -14px;
           right: 24px;
-          background: var(--apple-blue);
+          background: var(--gf-blue);
           color: #ffffff;
           padding: 4px 14px;
-          border-radius: var(--radius-full);
+          border-radius: 100px;
           font-size: 0.78rem;
           font-weight: 700;
           text-transform: uppercase;
@@ -256,8 +256,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
         .speed-val {
           font-family: var(--font-heading);
           font-size: 2.2rem;
-          font-weight: 800;
-          color: var(--apple-blue);
+          font-weight: 700;
+          color: var(--gf-blue);
           line-height: 1;
         }
 
@@ -277,7 +277,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
         .price-val {
           font-family: var(--font-heading);
           font-size: 1.8rem;
-          font-weight: 800;
+          font-weight: 700;
         }
 
         .price-unit {
@@ -290,7 +290,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
           margin-bottom: 20px;
         }
 
-        .free-inst { color: #059669; font-weight: 700; }
+        .free-inst { color: var(--gf-green-dark); font-weight: 700; }
         .paid-inst { color: var(--text-muted); }
 
         .card-divider {
@@ -317,7 +317,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
         }
 
         .check-icon {
-          color: var(--apple-blue);
+          color: var(--gf-green);
           margin-top: 2px;
           flex-shrink: 0;
         }
