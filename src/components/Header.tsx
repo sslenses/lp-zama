@@ -67,16 +67,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
           left: 0;
           width: 100%;
           z-index: 1000;
-          background: rgba(255, 255, 255, 0.8);
-          backdrop-filter: saturate(180%) blur(20px);
-          -webkit-backdrop-filter: saturate(180%) blur(20px);
+          background: #ffffff;
           border-bottom: 1px solid rgba(0, 0, 0, 0.08);
           transition: all 0.3s ease;
         }
 
         .apple-top-ribbon {
-          background: #1d1d1f;
-          color: #f5f5f7;
+          background: #202124;
+          color: #f8f9fa;
           font-size: 0.78rem;
           padding: 6px 0;
           text-align: center;
@@ -90,12 +88,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
         }
 
         .ribbon-icon {
-          color: #2997ff;
+          color: #8ab4f8;
           flex-shrink: 0;
         }
 
         .ribbon-content strong {
-          color: #2997ff;
+          color: #8ab4f8;
         }
 
         .nav-wrapper {
@@ -117,7 +115,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
           width: 32px;
           height: 32px;
           border-radius: 8px;
-          background: var(--apple-blue);
+          background: var(--gf-blue);
           color: #ffffff;
           display: flex;
           align-items: center;
@@ -126,7 +124,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
 
         .logo-text {
           font-family: var(--font-heading);
-          font-weight: 700;
+          font-weight: 600;
           font-size: 1.2rem;
           letter-spacing: -0.02em;
         }
@@ -134,26 +132,34 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
         .apple-nav-links {
           display: flex;
           align-items: center;
-          gap: 36px;
+          gap: 24px;
         }
 
         .apple-nav-links a {
-          color: var(--text-main);
+          color: var(--text-muted);
           opacity: 0.8;
           text-decoration: none;
-          font-size: 0.88rem;
+          font-size: 0.875rem;
           font-weight: 500;
+          white-space: nowrap;
           transition: opacity 0.2s ease;
         }
 
         .apple-nav-links a:hover {
           opacity: 1;
-          color: var(--apple-blue);
+          color: var(--text-main);
+        }
+
+        .header-cta-group {
+          display: flex;
+          align-items: center;
+          gap: 12px;
         }
 
         .btn-apple-nav {
           padding: 8px 18px;
           font-size: 0.85rem;
+          white-space: nowrap;
         }
 
         .apple-mobile-toggle {
@@ -164,19 +170,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
           cursor: pointer;
         }
 
-        @media (max-width: 868px) {
+        @media (max-width: 992px) {
           .apple-top-ribbon { font-size: 0.72rem; }
           .apple-nav-links {
             position: fixed;
-            top: 76px;
+            top: 100%;
             left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(20px);
+            background: #ffffff;
             flex-direction: column;
             padding: 30px;
-            gap: 24px;
+            gap: 20px;
             border-bottom: 1px solid var(--border-light);
+            box-shadow: var(--shadow-2);
             transform: translateY(-150%);
             opacity: 0;
             pointer-events: none;
