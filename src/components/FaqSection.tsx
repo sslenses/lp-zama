@@ -65,8 +65,8 @@ export const FaqSection: React.FC = () => {
 
       <style>{`
         .faq-section {
-          min-height: 100vh;
-          padding: 100px 0 60px;
+          min-height: calc(100vh - 76px);
+          padding: 30px 0;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -77,7 +77,7 @@ export const FaqSection: React.FC = () => {
           margin: 0 auto;
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 12px;
         }
 
         .faq-item {
@@ -93,7 +93,7 @@ export const FaqSection: React.FC = () => {
 
         .faq-question-btn {
           width: 100%;
-          padding: 22px 28px;
+          padding: 16px 22px;
           background: transparent;
           border: none;
           display: flex;
@@ -101,7 +101,7 @@ export const FaqSection: React.FC = () => {
           justify-content: space-between;
           color: var(--text-main);
           font-family: var(--font-heading);
-          font-size: 1.08rem;
+          font-size: 1.02rem;
           font-weight: 700;
           cursor: pointer;
           text-align: left;
