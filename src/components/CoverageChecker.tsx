@@ -6,18 +6,13 @@ interface CoverageCheckerProps {
 }
 
 export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal }) => {
-  const [selectedArea, setSelectedArea] = useState<string>('Sedayu, Bantul');
+  const [selectedArea, setSelectedArea] = useState<string>('Sedayu (Argosari, Argomulyo, Argodadi, Argorejo)');
   const [addressInput, setAddressInput] = useState<string>('');
   const [checkResult, setCheckResult] = useState<boolean | null>(null);
 
   const areasList = [
     'Sedayu (Argosari, Argomulyo, Argodadi, Argorejo)',
-    'Gamping & Ambarketawang',
-    'Kasihan & Bangunjiwo',
-    'Pajangan & Guwosari',
-    'Kecamatan Bantul Kota',
-    'Depok & Sleman Selatan',
-    'Kodya Yogyakarta & Sekitarnya'
+    'Tirtoadi (Sleman)'
   ];
 
   const handleCheck = (e: React.FormEvent) => {
@@ -33,7 +28,7 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
           <span className="tag">JANGKAUAN JARINGAN</span>
           <h2>Cek Ketersediaan di Lokasi Anda.</h2>
           <p>
-            Jaringan Fiber Optic Zamanet telah menjangkau Bantul, Sedayu, Sleman, & Kota Yogyakarta.
+            Jaringan Fiber Optic Zamanet telah menjangkau area Sedayu & Tirtoadi.
           </p>
         </div>
 
@@ -64,7 +59,7 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
                 <input
                   id="address-input"
                   type="text"
-                  placeholder="Contoh: Jl. Wates Km 10, Argosari, Sedayu"
+                  placeholder="Contoh: Argosari, Sedayu / Tirtoadi, Sleman"
                   value={addressInput}
                   onChange={(e) => setAddressInput(e.target.value)}
                   className="custom-input"
@@ -111,15 +106,15 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
               </div>
               <div className="map-pin pin-2">
                 <Navigation size={14} className="pin-icon" />
-                <span className="pin-label">ODP Kasihan</span>
+                <span className="pin-label">ODP Tirtoadi</span>
               </div>
               <div className="map-pin pin-3">
                 <Navigation size={14} className="pin-icon" />
-                <span className="pin-label">ODP Gamping</span>
+                <span className="pin-label">ODP Argosari</span>
               </div>
               <div className="map-pin pin-4">
                 <Navigation size={14} className="pin-icon" />
-                <span className="pin-label">ODP Bantul</span>
+                <span className="pin-label">ODP Argomulyo</span>
               </div>
               <div className="map-coverage-ring"></div>
             </div>
@@ -134,7 +129,7 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
 
       <style>{`
         .coverage-section {
-          padding: 48px 0;
+          padding: 64px 0;
         }
 
         .coverage-grid {
@@ -144,7 +139,7 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
         }
 
         .checker-card, .area-list-card {
-          padding: 36px;
+          padding: 32px;
           background: #ffffff;
         }
 
@@ -158,7 +153,7 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
         }
 
         .map-icon {
-          color: var(--primary-blue);
+          color: var(--gf-blue);
         }
 
         .checker-card p {
@@ -189,7 +184,7 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
           width: 100%;
           padding: 14px 18px;
           border-radius: var(--radius-md);
-          background: var(--bg-main);
+          background: var(--bg-subtle);
           border: 1px solid var(--border-light);
           color: var(--text-main);
           font-family: var(--font-body);
@@ -199,8 +194,8 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
         }
 
         .custom-select:focus, .custom-input:focus {
-          border-color: var(--primary-blue);
-          box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+          border-color: var(--gf-blue);
+          box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
         }
 
         .result-alert {
@@ -209,8 +204,8 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
           display: flex;
           gap: 14px;
           border-radius: var(--radius-md);
-          background: var(--accent-emerald-light);
-          border: 1px solid rgba(16, 185, 129, 0.3);
+          background: var(--gf-green-light);
+          border: 1px solid rgba(52, 168, 83, 0.3);
         }
 
         .result-icon-success {
@@ -246,12 +241,12 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
         }
 
         .radio-icon {
-          color: var(--primary-blue);
+          color: var(--gf-blue);
         }
 
         .map-visual-box {
           height: 240px;
-          background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+          background: linear-gradient(135deg, var(--gf-blue-light) 0%, var(--bg-subtle) 100%);
           border-radius: var(--radius-md);
           border: 1px solid var(--border-light);
           position: relative;
@@ -262,7 +257,7 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
         .map-pin {
           position: absolute;
           background: #ffffff;
-          border: 1px solid var(--primary-blue);
+          border: 1px solid var(--gf-blue);
           padding: 4px 10px;
           border-radius: var(--radius-full);
           display: flex;
@@ -270,11 +265,11 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
           gap: 6px;
           font-size: 0.78rem;
           font-weight: 700;
-          color: var(--primary-blue-dark);
-          box-shadow: var(--shadow-sm);
+          color: var(--gf-blue-dark);
+          box-shadow: var(--shadow-1);
         }
 
-        .pin-icon { color: var(--primary-blue); }
+        .pin-icon { color: var(--gf-blue); }
 
         .pin-1 { top: 25%; left: 15%; }
         .pin-2 { top: 60%; left: 35%; }
@@ -289,7 +284,7 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
           width: 180px;
           height: 180px;
           border-radius: 50%;
-          border: 2px dashed rgba(2, 132, 199, 0.4);
+          border: 2px dashed rgba(26, 115, 232, 0.4);
           animation: spin 20s linear infinite;
         }
 
@@ -299,8 +294,8 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
           gap: 10px;
           padding: 16px;
           border-radius: var(--radius-md);
-          background: var(--accent-amber-light);
-          border: 1px solid rgba(245, 158, 11, 0.3);
+          background: var(--gf-yellow-light);
+          border: 1px solid rgba(251, 188, 4, 0.3);
           color: #92400e;
           font-size: 0.88rem;
         }
