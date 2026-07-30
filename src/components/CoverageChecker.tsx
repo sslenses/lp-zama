@@ -30,10 +30,10 @@ export const CoverageChecker: React.FC<CoverageCheckerProps> = ({ onOpenModal })
     <section id="coverage" className="coverage-section">
       <div className="container">
         <div className="section-header">
-          <span className="tag">Jangkauan Jaringan</span>
-          <h2>Area Coverage Fiber Zamanet</h2>
+          <span className="tag">JANGKAUAN JARINGAN</span>
+          <h2>Cek Ketersediaan di Lokasi Anda.</h2>
           <p>
-            Jaringan Fiber Optic Zamanet telah terpasang luas di Kabupaten Bantul, Sedayu, Sleman, & Kota Yogyakarta.
+            Jaringan Fiber Optic Zamanet telah menjangkau Bantul, Sedayu, Sleman, & Kota Yogyakarta.
           </p>
         </div>
 
