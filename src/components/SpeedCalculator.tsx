@@ -160,11 +160,11 @@ export const SpeedCalculator: React.FC<SpeedCalculatorProps> = ({ onOpenModal })
         .calc-section {
           height: 100vh;
           box-sizing: border-box;
-          padding-top: 76px;
+          padding-top: 36px;
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
         }
 
         .calc-card {
