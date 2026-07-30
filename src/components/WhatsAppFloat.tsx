@@ -20,28 +20,27 @@ export const WhatsAppFloat: React.FC = () => {
           right: 28px;
           width: 60px;
           height: 60px;
-          border-radius: 50%;
+          border-radius: 28px;
           background: #25d366;
           color: #ffffff;
           display: flex;
           align-items: center;
           justify-content: center;
-          box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+          box-shadow: var(--shadow-3);
           z-index: 99;
           transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           text-decoration: none;
         }
 
         .wa-float-btn:hover {
-          transform: scale(1.1);
-          box-shadow: 0 12px 35px rgba(37, 211, 102, 0.65);
+          box-shadow: var(--shadow-4);
         }
 
         .wa-tooltip {
           position: absolute;
           right: 72px;
-          background: rgba(6, 9, 19, 0.95);
-          border: 1px solid var(--border-glass);
+          background: #202124;
+          border: 1px solid #3c4043;
           color: #ffffff;
           font-size: 0.82rem;
           font-weight: 600;
@@ -51,7 +50,6 @@ export const WhatsAppFloat: React.FC = () => {
           opacity: 0;
           pointer-events: none;
           transition: opacity 0.25s ease;
-          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
         }
 
         .wa-float-btn:hover .wa-tooltip {
