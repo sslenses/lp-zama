@@ -128,11 +128,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
 
       <style>{`
         .apple-pricing-section {
-          min-height: calc(100vh - 76px);
-          padding: 60px 0;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+          padding: 48px 0;
         }
 
         .apple-segmented-container {
@@ -213,7 +209,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
         }
 
         .apple-pricing-card {
-          padding: 22px 24px;
+          padding: 18px 20px;
           background: #ffffff;
           border-radius: var(--radius-lg);
           box-shadow: var(--shadow-apple);
@@ -243,11 +239,11 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
           display: flex;
           justify-content: space-between;
           align-items: flex-end;
-          margin-bottom: 16px;
+          margin-bottom: 12px;
         }
 
         .pkg-title {
-          font-size: 1.5rem;
+          font-size: 1.3rem;
           font-weight: 700;
         }
 
@@ -259,14 +255,14 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
 
         .speed-val {
           font-family: var(--font-heading);
-          font-size: 2.8rem;
+          font-size: 2.2rem;
           font-weight: 800;
           color: var(--apple-blue);
           line-height: 1;
         }
 
         .speed-unit {
-          font-size: 0.95rem;
+          font-size: 0.88rem;
           font-weight: 700;
           color: var(--text-muted);
         }
@@ -274,13 +270,13 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenModal }) =
         .price-row {
           display: flex;
           align-items: baseline;
-          gap: 6px;
-          margin-bottom: 8px;
+          gap: 4px;
+          margin-bottom: 6px;
         }
 
         .price-val {
           font-family: var(--font-heading);
-          font-size: 2.2rem;
+          font-size: 1.8rem;
           font-weight: 800;
         }
 
