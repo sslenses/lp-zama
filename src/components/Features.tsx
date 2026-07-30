@@ -83,11 +83,7 @@ export const Features: React.FC = () => {
 
       <style>{`
         .features-section {
-          min-height: calc(100vh - 76px);
-          padding: 60px 0;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+          padding: 48px 0;
         }
 
         .bento-grid {
@@ -97,7 +93,7 @@ export const Features: React.FC = () => {
         }
 
         .bento-card {
-          padding: 20px 22px;
+          padding: 18px 20px;
           background: #ffffff;
           display: flex;
           flex-direction: column;
