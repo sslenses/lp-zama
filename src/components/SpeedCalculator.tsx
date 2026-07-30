@@ -162,7 +162,7 @@ export const SpeedCalculator: React.FC<SpeedCalculatorProps> = ({ onOpenModal })
         }
 
         .calc-card {
-          padding: 24px 32px;
+          padding: 28px 32px;
           background: #ffffff;
         }
 
@@ -176,9 +176,9 @@ export const SpeedCalculator: React.FC<SpeedCalculatorProps> = ({ onOpenModal })
         .calc-icon-badge {
           width: 44px;
           height: 44px;
-          border-radius: 12px;
-          background: var(--primary-blue-light);
-          color: var(--primary-blue-dark);
+          border-radius: var(--radius-md);
+          background: var(--gf-blue-light);
+          color: var(--gf-blue-dark);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -187,7 +187,7 @@ export const SpeedCalculator: React.FC<SpeedCalculatorProps> = ({ onOpenModal })
 
         .calc-header h2 {
           font-size: 1.8rem;
-          font-weight: 800;
+          font-weight: 600;
           color: var(--text-main);
         }
 
@@ -235,9 +235,9 @@ export const SpeedCalculator: React.FC<SpeedCalculatorProps> = ({ onOpenModal })
         }
 
         .preset-btn:hover {
-          border-color: var(--primary-blue);
-          color: var(--primary-blue);
-          box-shadow: var(--shadow-sm);
+          border-color: var(--gf-blue);
+          color: var(--gf-blue);
+          box-shadow: var(--shadow-1);
         }
 
         .calc-body {
@@ -260,15 +260,15 @@ export const SpeedCalculator: React.FC<SpeedCalculatorProps> = ({ onOpenModal })
         }
 
         .control-val {
-          color: var(--primary-blue-dark);
+          color: var(--gf-blue-dark);
           font-family: var(--font-heading);
           font-size: 1.1rem;
-          font-weight: 800;
+          font-weight: 700;
         }
 
         .calc-slider {
           width: 100%;
-          accent-color: var(--primary-blue);
+          accent-color: var(--gf-blue);
           height: 8px;
           background: var(--border-light);
           border-radius: 4px;
@@ -320,15 +320,15 @@ export const SpeedCalculator: React.FC<SpeedCalculatorProps> = ({ onOpenModal })
         }
 
         .usage-btn.active {
-          background: var(--primary-blue-light);
-          border-color: var(--primary-blue);
-          color: var(--primary-blue-dark);
+          background: var(--gf-blue-light);
+          border-color: var(--gf-blue);
+          color: var(--gf-blue-dark);
         }
 
         /* Rec Box */
         .rec-box {
           padding: 32px;
-          background: var(--bg-main);
+          background: var(--bg-subtle);
           border: 1px solid var(--border-light);
           border-radius: var(--radius-lg);
           text-align: center;
@@ -339,9 +339,9 @@ export const SpeedCalculator: React.FC<SpeedCalculatorProps> = ({ onOpenModal })
           align-items: center;
           gap: 6px;
           font-size: 0.78rem;
-          font-weight: 800;
+          font-weight: 700;
           text-transform: uppercase;
-          color: var(--primary-blue-dark);
+          color: var(--gf-blue-dark);
           letter-spacing: 1px;
           margin-bottom: 12px;
         }
@@ -355,8 +355,8 @@ export const SpeedCalculator: React.FC<SpeedCalculatorProps> = ({ onOpenModal })
         .rec-price {
           font-family: var(--font-heading);
           font-size: 1.8rem;
-          font-weight: 800;
-          color: var(--primary-blue);
+          font-weight: 700;
+          color: var(--gf-blue);
           margin-bottom: 16px;
         }
 
