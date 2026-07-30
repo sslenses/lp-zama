@@ -85,8 +85,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenModal }) => {
 
       <style>{`
         .footer {
-          background: #ffffff;
-          border-top: 1px solid var(--border-light);
+          background: #202124;
+          border-top: none;
+          color: #9aa0a6;
           padding: 80px 0 30px;
           position: relative;
         }
@@ -110,11 +111,21 @@ export const Footer: React.FC<FooterProps> = ({ onOpenModal }) => {
           font-family: var(--font-heading);
           font-size: 1.35rem;
           font-weight: 800;
-          color: var(--text-main);
+          color: #ffffff;
+        }
+
+        .logo-icon-box {
+          background: var(--gf-blue);
+          color: #ffffff;
+          padding: 8px;
+          border-radius: var(--radius-md);
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .footer-desc {
-          color: var(--text-muted);
+          color: #9aa0a6;
           font-size: 0.92rem;
           line-height: 1.6;
           margin-bottom: 24px;
@@ -131,17 +142,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenModal }) => {
           align-items: center;
           gap: 10px;
           font-size: 0.88rem;
-          color: var(--text-muted);
+          color: #9aa0a6;
         }
 
         .c-icon {
-          color: var(--primary-blue);
+          color: var(--gf-blue);
           flex-shrink: 0;
         }
 
         .footer-links-col h4 {
           font-size: 1.1rem;
-          color: var(--text-main);
+          color: #ffffff;
           margin-bottom: 20px;
         }
 
@@ -153,36 +164,36 @@ export const Footer: React.FC<FooterProps> = ({ onOpenModal }) => {
         }
 
         .footer-links-col a {
-          color: var(--text-muted);
+          color: #9aa0a6;
           text-decoration: none;
           font-size: 0.9rem;
           transition: color 0.2s ease;
         }
 
         .footer-links-col a:hover {
-          color: var(--primary-blue);
+          color: #ffffff;
         }
 
         .footer-cta-card {
           padding: 24px;
-          background: var(--bg-main);
-          border-color: var(--border-light);
+          background: #3c4043;
+          border-color: #5f6368;
         }
 
         .cta-icon {
-          color: var(--primary-blue);
+          color: var(--gf-blue);
           margin-bottom: 12px;
         }
 
         .footer-cta-card h3 {
           font-size: 1.15rem;
-          color: var(--text-main);
+          color: #ffffff;
           margin-bottom: 8px;
         }
 
         .footer-cta-card p {
           font-size: 0.85rem;
-          color: var(--text-muted);
+          color: #9aa0a6;
           margin-bottom: 18px;
         }
 
@@ -191,9 +202,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenModal }) => {
           justify-content: space-between;
           align-items: center;
           padding-top: 30px;
-          border-top: 1px solid var(--border-light);
+          border-top: 1px solid #3c4043;
           font-size: 0.88rem;
-          color: var(--text-dim);
+          color: #80868b;
         }
 
         .footer-legal {
@@ -202,12 +213,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenModal }) => {
         }
 
         .footer-legal a {
-          color: var(--text-dim);
+          color: #80868b;
           text-decoration: none;
         }
 
         .footer-legal a:hover {
-          color: var(--text-muted);
+          color: #9aa0a6;
         }
 
         @media (max-width: 1024px) {
